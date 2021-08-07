@@ -6,14 +6,14 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:53:27 by sguilher          #+#    #+#             */
-/*   Updated: 2021/07/07 19:56:18 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/04 17:43:13 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEST_PRINTF_H
 # define TEST_PRINTF_H
 
-# include "colors.h"
+# include "../test/colors.h"
 # include <stdio.h>
 
 # define PURPLE(string)			"\033[38;5;200m" string "\033[0m"
