@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 08:01:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 08:05:55 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/13 21:04:28 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ char	check_specifier(const char c)
 		return (0);
 }
 
-int	print_specifier(t_print *p, t_flags *f, va_list args)
+//int	print_specifier(t_print *p, t_flags *f, va_list args)
+int	print_specifier(t_print *p)
 {
-	if ((*f).specifier == 'c')
+	/*if ((*f).specifier == 'c')
 		return(print_c(p, f, va_arg(args, char)));
 	else if ((*f).specifier == 's')
 		return(print_s(p, f, va_arg(args, char *)));
@@ -38,6 +39,7 @@ int	print_specifier(t_print *p, t_flags *f, va_list args)
 		return(print_low_hex(p, f, va_arg(args, char *)));
 	else if ((*f).specifier == 'X')
 		return(print_upp_hex(p, f, va_arg(args, char *)));
-	else
+	else*/
+	(*p).i++;
 		return (write((*p).fd, "%", 1));
 }

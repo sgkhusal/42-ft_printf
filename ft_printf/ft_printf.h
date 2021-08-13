@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 08:16:25 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/13 21:04:35 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	ft_printf_fd(int fd, const char *str, ...);
 int	printf_flags(t_print *p, const char *str, va_list args);
 
 char	check_specifier(const char c);
-int	print_specifier(t_print *p, t_flags *f, va_list args);
+//int	print_specifier(t_print *p, t_flags *f, va_list args);
+int	print_specifier(t_print *p);
 int	print_c(t_print *p, t_flags *f, char c);
 int	print_s(t_print *p, t_flags *f, char *str);
 int	print_d(t_print *p, t_flags *f, int n);

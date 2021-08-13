@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 19:15:00 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/13 21:04:44 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int		ft_printf_atoi(t_print *p, const char *nptr, int *i)
 
 static void	check_numb_flags(t_flags *f, t_print *p, const char *str, int *i)
 {
-	if (ft_isdigit(str[*i]))
+	if (ft_isdigit(str[0]))
 	{
 		if ((*f).point == 1)
-			(*f).precision = ft_printf_atoi(p, &str[*i], i);
+			(*f).precision = ft_printf_atoi(p, str, i);
 		else
-			(*f).width = ft_printf_atoi(p, &str[*i], i);
+			(*f).width = ft_printf_atoi(p, str, i);
 	}
 }
 
@@ -75,6 +75,7 @@ int	printf_flags(t_print *p, const char *str, va_list args)
 {
 	t_flags	f;
 	int		i;
+	char	*test; ////
 
 	i = 0;
 	f.minus = 0;
@@ -83,11 +84,14 @@ int	printf_flags(t_print *p, const char *str, va_list args)
 	f.space = 0;
 	f.point = 0;
 	f.hashtag = 0;
+	f.specifier = 0;
+	test = va_arg(args, char *); ////
 	check_flags(&f, p, &str[i], &i);
 	check_flags(&f, p, &str[i], &i);
 	f.specifier = check_specifier(str[i]);
-	if (f.specifier)
-		return (print_specifier(p, &f, args));
+	if (f.specifier != 0)
+		return (print_specifier(p));
+		//return (print_specifier(p, &f, args));
 	else
 		return(write((*p).fd, "%", 1));
 	///// verificar se a printf nao imprime as flags no caso de nao ter um specifier!!!!

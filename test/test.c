@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:40:46 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/12 06:32:44 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/13 21:07:34 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int	main(void){
 	result2 = ft_printf("test\n");
 	check_return(result1, result2);
 
-
 	printf(PINK("\nTest 1.2: printing a bigger text: Harry Potter and Philosopher's Stone\n"));
 	printf(LIGHT_BLUE2("%20s"), "printf result:\n");
 	result1 = printf("Mr and Mrs Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.\nThey were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold with such nonsense.\nMr Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly nay neck, although he did have a very large muoustache.\nMrs Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neigbours.\nThe Dursleys had a small son called Dudley and in their opinion there was no finer boy anywhere.\nThe Dursley had everything they wanted, but they also had a secret, and their greatest fear was that somebody would discover it.\nThey didn't think they could bear it if anyone found out about the Potters.\n");
@@ -63,23 +62,29 @@ int	main(void){
 	printf("\n");
 	result2 = ft_printf("\\\",\n");
 	check_return(result1, result2);
-	result1 = printf("audible alert:\a\n");
-	result2 = ft_printf("audible alert:\a\n");
+	result1 = printf("alert: \\a\a\n");
+	result2 = ft_printf("alert: \\a\a\n");
 	check_return(result1, result2);
-	result1 = printf("\bbackspace\n");
-	result2 = ft_printf("\bbackspace\n");
+	result1 = printf("\bbackspace \\b\n");
+	result2 = ft_printf("\bbackspace \\b\n");
 	check_return(result1, result2);
-	result1 = printf("\fform feed\n");
-	result2 = ft_printf("\fform feed\n");
+	result1 = printf("\fform feed \\f\n");
+	result2 = ft_printf("\fform feed \\f\n");
 	check_return(result1, result2);
-	result1 = printf("\rcarriage return\n");
-	result2 = ft_printf("\rcarriage return\n");
+	result1 = printf("\rcarriage return \\r\n");
+	result2 = ft_printf("\rcarriage return \\r\n");
 	check_return(result1, result2);
-	result1 = printf("\ttab\n");
-	result2 = ft_printf("\ttab\n");
+	result1 = printf("\ttab \\t\n");
+	result2 = ft_printf("\ttab \\t\n");
 	check_return(result1, result2);
-	result1 = printf("\vvertical tab\n");
-	result2 = ft_printf("\vvertical tab\n");
+	result1 = printf("\vvertical tab \\v\n");
+	result2 = ft_printf("\vvertical tab \\v\n");
+	check_return(result1, result2);
+	result1 = printf("\thorizontal tab \\t\n");
+	result2 = ft_printf("\thorizontal tab \\t\n");
+	check_return(result1, result2);
+	result1 = printf("\nnew line \\n\n");
+	result2 = ft_printf("\nnew line \\n\n");
 	check_return(result1, result2);
 
 	printf(PINK("\nTest 3: Specifier %%:\n"));
@@ -89,10 +94,13 @@ int	main(void){
 	printf("\n");
 	result2 = ft_printf("100%%\n");
 	check_return(result1, result2);
+	/* Tests with % that give error in printf when compiled with the flags -Wall -Wextra -Werror*/
+	/*result1 = printf("%_this is_a test\n");
 	result2 = ft_printf("%_this is_a test\n");
-	check_return(18, result2);
+	check_return(result1, result2);
+	result1 = printf("bbbb%kanother test\n");
 	result2 = ft_printf("bbbb%kanother test\n");
-	check_return(20, result2);
+	check_return(result1, result2);*/
 
 	/*printf(PINK("\nwhen we do not indicate the variable, it prints anything from a place in the memory according with the variable type:\n"));
 	printf(LIGHT_BLUE2("%%c: %c\n"));

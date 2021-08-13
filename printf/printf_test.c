@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 22:46:27 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 03:37:25 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/13 19:58:49 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,18 @@ int	main(void){
 	printf(LIGHT_PURPLE("\nLet's see how printf function works?\n\n"));
 	printf(LIGHT_BLUE2("formatation tags: %%[flags][width][.precision][length]specifier\n\n"));
 	printf(LIGHT_PURPLE("************************************* Mandatory *************************************\n\n"));
-	printf(LIGHT_RED("Specifiers: c, s, d, i, u, p, x and X\n\n"));
+	printf(LIGHT_RED("Printf return:\n\n"));
+	int	result;
+	result = printf("printing with printf\n");
+	printf("printf return = %i\n", result);
+	result = printf("printing %s", "with printf\n");
+	printf("printf return = %i\n", result);
+	result = printf("%25s", "printing with printf\n");
+	printf("printf return = %i\n", result);
+	result = printf(LIGHT_BLUE2("%25s"), "printing with printf\n"); // LIGHT_BLUE2 = 10 + 4
+	printf("printf return = %i = 25 (width) + 14 (LIGHT_BLUE2 format size)\n", result);
+
+	/*printf(LIGHT_RED("Specifiers: c, s, d, i, u, p, x and X\n\n"));
 
 	char	c = 'a';
 	char	str[13] = "Hello World!";
@@ -117,7 +128,7 @@ int	main(void){
 	printf(LIGHT_RED("\n\nprinting unsigned hex integer uppercase - specifier X:\n"));
 	printf(LIGHT_BLUE2("unsigned hex integer %%X = %X\n"), j);
 	printf(LIGHT_BLUE2("unsigned hex integer with negative number %%X = %X\n"), i);
-	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));
+	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));*/
 
 
 	/* ************************ Bonus ****************************** */

@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 21:59:48 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 05:27:43 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/13 20:48:16 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ static int	printf_fd(int fd, const char *str, va_list args)
 			// preciso de um retorno de quantos andou no p.i - bonus
 			p.j = p.i; // nova posicao que deve continuar a impressao
 			p.sub_len = 0;
-			printf("p.len = %d\n", p.len);
+			//printf("p.len = %d\n", p.len);
 		}
-		p.i++;
+		else
+			p.i++;
 	}
+	//printf("p.sub_len = %d\n", p.sub_len);
 	write(1, &str[p.j], p.sub_len);
 	p.len = p.len + p.sub_len;
 	return (p.len);
