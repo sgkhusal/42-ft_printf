@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 08:11:37 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/13 19:15:00 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,16 @@ static void	put_flags(t_flags *f, const char c)
 {
 	if (c == '-')
 		(*f).minus = 1;
-	else
-		(*f).minus = 0;
-	if (c == '0')
+	else if (c == '0')
 		(*f).zero = 1;
-	else
-		(*f).zero = 0;
-	if (c == '+')
+	else if (c == '+')
 		(*f).plus = 1;
-	else
-		(*f).plus = 0;
-	if (c == ' ')
+	else if (c == ' ')
 		(*f).space = 1;
-	else
-		(*f).space = 0;
-	if (c == '.')
+	else if (c == '.')
 		(*f).point = 1;
-	else
-		(*f).point = 0;
-	if (c == '#')
+	else if (c == '#')
 		(*f).hashtag = 1;
-	else
-		(*f).hashtag = 0;
 }
 
 static void	check_flags(t_flags *f, t_print *p, const char *str, int *i)
@@ -89,6 +77,12 @@ int	printf_flags(t_print *p, const char *str, va_list args)
 	int		i;
 
 	i = 0;
+	f.minus = 0;
+	f.zero = 0;
+	f.plus = 0;
+	f.space = 0;
+	f.point = 0;
+	f.hashtag = 0;
 	check_flags(&f, p, &str[i], &i);
 	check_flags(&f, p, &str[i], &i);
 	f.specifier = check_specifier(str[i]);

@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:01:10 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/13 08:09:57 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/13 19:11:37 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,14 @@ CFLAGS = 	-Wall -Werror -Wextra
 
 # clean
 RM =		-rm -f
+RM_DIR =	rm -rf
 
 # rules
 
 all:	$(NAME)
+
+#@mkdir $(OBJ_PATH)
+
 
 message:
 		@echo $(SRC)
@@ -50,6 +54,7 @@ message:
 b:	$(OBJ)
 
 $(OBJ_PATH)/%.o:	$(SRC_PATH)/%.c
+	@mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 #$(OBJ):	$(SRC)
@@ -69,6 +74,7 @@ $(BONUS):	$(BONUS_OBJS)  ### sera que e bom colocar um fclean (acho que nao, por
 
 clean:
 		$(RM) $(OBJ) $(BONUS_OBJ)
+		$(RM_DIR) $(OBJ_PATH)
 
 fclean:		clean
 		$(RM) $(NAME)
