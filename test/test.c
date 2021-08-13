@@ -6,11 +6,23 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:40:46 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/07 16:38:40 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/12 06:32:44 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "colors.h"
+#include "test.h"
+
+void	check_return(int n1, int n2){
+	if (n1 == n2)
+		printf(GREEN("OK\n"));
+	else
+	{
+		printf(RED("NOT OK\n"));
+		printf(RED("printf return = %i\n"), n1);
+		printf(RED("ft_printf return = %i\n"), n2);
+	}
+
+}
 
 int	main(void){
 	/* ************************* Printf ******************************** */
@@ -19,28 +31,68 @@ int	main(void){
 	printf(LIGHT_PURPLE("\nFT_PRINTF TESTER\n\n"));
 	printf(LIGHT_RED("Specifiers: c, s, d, i, u, p, and x\n\n"));
 
-	char	c = 'a';
-	char	str[13] = "Hello World!";
-	int		i = -42;
-	unsigned int	j = 42;
-	int *ptr = &i;
+	//char	c = 'a';
+	//char	str[13] = "Hello World!";
+	//int		i = -42;
+	//unsigned int	j = 42;
+	//int *ptr = &i;
+	int	result1;
+	int	result2;
 
-	printf(PINK("Test 1: printing a simple text: Harry Potter and Philosopher's Stone\n"));
-	printf(LIGHT_BLUE2("%20s"), "printf result: ");
-	printf("Mr and Mrs Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.\nThey were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold with such nonsense.\nMr Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly nay neck, although he did have a very large muoustache.\nMrs Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neigbours.\nThe Dursleys had a small son called Dudley and in their opinion there was no finer boy anywhere.\nThe Dursley had everything they wanted, but they also had a secret, and their greatest fear was that somebody would discover it.\nThey didn't think they could bear it if anyone found out about the Potters.");
+	printf(PINK("Test 1.1: printing a simple text:\n"));
+	printf(LIGHT_BLUE2("%20s"), "printf result:\n");
+	result1 = printf("test\n");
 	printf(LIGHT_BLUE2("%20s"), "ft_printf result: ");
-	ft_printf("Mr and Mrs Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.\nThey were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold with such nonsense.\nMr Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly nay neck, although he did have a very large muoustache.\nMrs Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neigbours.\nThe Dursleys had a small son called Dudley and in their opinion there was no finer boy anywhere.\nThe Dursley had everything they wanted, but they also had a secret, and their greatest fear was that somebody would discover it.\nThey didn't think they could bear it if anyone found out about the Potters.");
+	printf("\n");
+	result2 = ft_printf("test\n");
+	check_return(result1, result2);
 
-	printf(PINK("Test 2: printing special characters\n"));
-	printf(LIGHT_BLUE2("%20s"), "printf result: ");
-	printf("\\\"\%\,\naudible alert:\a\n\bbackspace\n\fform feed\n\rcarriage return\n\t\ntab\vvertical tab\n");
+
+	printf(PINK("\nTest 1.2: printing a bigger text: Harry Potter and Philosopher's Stone\n"));
+	printf(LIGHT_BLUE2("%20s"), "printf result:\n");
+	result1 = printf("Mr and Mrs Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.\nThey were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold with such nonsense.\nMr Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly nay neck, although he did have a very large muoustache.\nMrs Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neigbours.\nThe Dursleys had a small son called Dudley and in their opinion there was no finer boy anywhere.\nThe Dursley had everything they wanted, but they also had a secret, and their greatest fear was that somebody would discover it.\nThey didn't think they could bear it if anyone found out about the Potters.\n");
 	printf(LIGHT_BLUE2("%20s"), "ft_printf result: ");
-	ft_printf("\\\"\%\,\naudible alert:\a\n\bbackspace\n\fform feed\n\rcarriage return\n\t\ntab\vvertical tab\n");
+	printf("\n");
+	result2 = ft_printf("Mr and Mrs Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much.\nThey were the last people you'd expect to be involved in anything strange or mysterious, because they just didn't hold with such nonsense.\nMr Dursley was the director of a firm called Grunnings, which made drills. He was a big, beefy man with hardly nay neck, although he did have a very large muoustache.\nMrs Dursley was thin and blonde and had nearly twice the usual amount of neck, which came in very useful as she spent so much of her time craning over garden fences, spying on the neigbours.\nThe Dursleys had a small son called Dudley and in their opinion there was no finer boy anywhere.\nThe Dursley had everything they wanted, but they also had a secret, and their greatest fear was that somebody would discover it.\nThey didn't think they could bear it if anyone found out about the Potters.\n");
+	check_return(result1, result2);
 
-	printf(PINK("Test 3: Specifier %%:\n"));
-	printf(LIGHT_BLUE2("test %% without flags, width, precision or a specifier after - it prints just the %:\n"));
-	printf(LIGHT_BLUE2("%_this is a test\n"));
-	printf(LIGHT_BLUE2("%kanother test\n"));
+	printf(PINK("\nTest 2: printing special characters\n"));
+	printf(LIGHT_BLUE2("%20s"), "printf result:\n");
+	result1 = printf("\\\",\n");
+	printf(LIGHT_BLUE2("%20s"), "ft_printf result: ");
+	printf("\n");
+	result2 = ft_printf("\\\",\n");
+	check_return(result1, result2);
+	result1 = printf("audible alert:\a\n");
+	result2 = ft_printf("audible alert:\a\n");
+	check_return(result1, result2);
+	result1 = printf("\bbackspace\n");
+	result2 = ft_printf("\bbackspace\n");
+	check_return(result1, result2);
+	result1 = printf("\fform feed\n");
+	result2 = ft_printf("\fform feed\n");
+	check_return(result1, result2);
+	result1 = printf("\rcarriage return\n");
+	result2 = ft_printf("\rcarriage return\n");
+	check_return(result1, result2);
+	result1 = printf("\ttab\n");
+	result2 = ft_printf("\ttab\n");
+	check_return(result1, result2);
+	result1 = printf("\vvertical tab\n");
+	result2 = ft_printf("\vvertical tab\n");
+	check_return(result1, result2);
+
+	printf(PINK("\nTest 3: Specifier %%:\n"));
+	printf(LIGHT_BLUE2("%20s"), "printf result:\n");
+	result1 = printf("100%%\n");
+	printf(LIGHT_BLUE2("%20s"), "ft_printf result: ");
+	printf("\n");
+	result2 = ft_printf("100%%\n");
+	check_return(result1, result2);
+	result2 = ft_printf("%_this is_a test\n");
+	check_return(18, result2);
+	result2 = ft_printf("bbbb%kanother test\n");
+	check_return(20, result2);
 
 	/*printf(PINK("\nwhen we do not indicate the variable, it prints anything from a place in the memory according with the variable type:\n"));
 	printf(LIGHT_BLUE2("%%c: %c\n"));

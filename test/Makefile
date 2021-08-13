@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:03:39 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/04 17:36:18 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/12 04:52:29 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,21 +25,17 @@ CC =		clang
 CFLAGS =	-Wall -Werror -Wextra
 RM =		-rm -f
 
-all:	m b
+all:	m cat
 
 m:	printf
 	$(CC) $(CFLAGS) $(TEST) $(PRINTF) -o $(NAME)
-	cat
+	./$(NAME)
 
 b:	bonus
 	$(CC) $(CFLAGS) $(BONUS_TEST) $(PRINTF) -o $(BONUS_NAME)
-	cat
 
 printf:
-		cd $(PRINTF_PATH)
-		make fclean
-		make all
-		cd $(TEST_PATH)
+		@cd $(PRINTF_PATH) && $(MAKE)
 
 bonus:
 		cd $(PRINTF_PATH)
@@ -70,9 +66,11 @@ cat:
 
 clean:
 		$(RM) $(OBJS) $(BONUS_OBJS)
+		@cd $(PRINTF_PATH) && $(MAKE) $@
 
 fclean:		clean
 		$(RM) $(NAME)
+		@cd $(PRINTF_PATH) && $(MAKE) $@
 
 re:			fclean all
 

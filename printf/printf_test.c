@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 22:46:27 by sguilher          #+#    #+#             */
-/*   Updated: 2021/07/07 23:09:26 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/13 03:37:25 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,33 +41,6 @@ int	main(void){
 	printf(LIGHT_BLUE2("%%c: %c\n"));
 	printf(LIGHT_BLUE2("%%i: %i\n"));
 	printf(LIGHT_BLUE2("%%x: %x\n"));
-
-	// Flags:
-	// The flag '-' left-justifies within the given field width. Right justification is the default
-	// The flag 0 left-pads the number with zeroes instead of spaces, where padding is specified
-
-	// Width:
-	/* number - minimum number of charcters to be printed. If the value to be printed is shorter than this number,
-	the result is padded with blank spaces. The value is not truncated even if the result is larger */
-	/* '*' - the width is not specified in the format string, but as an additional integer value argument preceding
-	the argument that has to be formatted */
-
-	// Precision
-	// .number
-	/* When no precision is specified, the default is 1.
-	If the period is specified without an explicit value for precision, 0 is assumed */
-	/* For integer specifiers d, i, o, u, x and X specifies the minimum number of digits to be written.
-	If the value to be written is shorter than this number, the result is padded with leading zeros.
-	The value is not truncated even if the result is longer.
-	A precision of 0 means that no character is written for the value of 0 */
-	/* For e, E and f: is the number of digits to be printed after the decimal point */
-	/* For g an G - is the maximum number of significant digits to be printed */
-	/* For s is the maximum number of significant digits to be printed
-	(By default all characters are printed until the ending null character is encountered) */
-	/* For c it is has no effect */
-	// '.*' --> the precision is not specified in the format string, but as an additional integer value argument preceding the argument that has to be formatted
-
-	// test any combination of the flags '-0.*'
 
 	// printing char - specifier c
 	printf(LIGHT_RED("\n\nprinting char - specifier c:\n"));
@@ -149,16 +122,55 @@ int	main(void){
 
 	/* ************************ Bonus ****************************** */
 	printf(LIGHT_PURPLE("\n************************ BONUS ******************************\n\n"));
+
+	// Flags:
+	// The flag '-' left-justifies within the given field width. Right justification is the default
+	// The flag 0 left-pads the number with zeroes instead of spaces, where padding is specified
+
+	// Width:
+	/* number - minimum number of charcters to be printed. If the value to be printed is shorter than this number,
+	the result is padded with blank spaces. The value is not truncated even if the result is larger */
+
+	// Precision
+	// .number
+	/* When no precision is specified, the default is 1.
+	If the period is specified without an explicit value for precision, 0 is assumed */
+	/* For integer specifiers d, i, o, u, x and X specifies the minimum number of digits to be written.
+	If the value to be written is shorter than this number, the result is padded with leading zeros.
+	The value is not truncated even if the result is longer.
+	A precision of 0 means that no character is written for the value of 0 */
+	/* For s is the maximum number of significant digits to be printed
+	(By default all characters are printed until the ending null character is encountered) */
+	/* For c it is has no effect */
+
+	// test any combination of the flags '-0.' and minimum field with all conversions
+
+	// flag '+' --> forces to precede the result with a plus or minus sign, even for positive numbers
+	// flag (space) --> if no sign is going to be written, a blank space is inserted before the value
+	// flag '#' --> used with o, x or X specifiers - the value is preceded with 0, 0x or 0X for values different than zero
+
+	/* ************************ Plus ****************************** */
 	// Specifiers
 	// specifier n - nothing printed
 	// printing decimal floating point - specifier f
 	// printing scientific notation using 'e' character - specifier e
 	// printing shorter of %e or %f - specifier g
+	// printing signed octal - specifier o
+	// printing scientific notation using 'E' character - specifier E
+	// printing shorter of %E or %f - specifier G
 
-	// Flags
-	// flag '+' --> forces to precede the result with a plus or minus sign, even for positive numbers
-	// flag (space) --> if no sign is going to be written, a blank space is inserted before the value
-	// flag '#' --> used with o, x or X specifiers - the value is preceded with 0, 0x or 0X for values different than zero
+	// Width:
+	/* '*' - the width is not specified in the format string, but as an additional integer value argument preceding
+	the argument that has to be formatted */
+
+	// Precision
+	// .number
+	/* When no precision is specified, the default is 1.
+	If the period is specified without an explicit value for precision, 0 is assumed */
+	/* For e, E and f: is the number of digits to be printed after the decimal point */
+	/* For g an G - is the maximum number of significant digits to be printed */
+	// '.*' --> the precision is not specified in the format string, but as an additional integer value argument preceding the argument that has to be formatted
+
 	// flag '#' --> used with e, E and f specifiers - it forces the written output to contain a decimal point even if no digit would follow
 	// flag '#' --> used with g, G - the result is the same as with e or E, but trailing zeros are removed
 
@@ -168,15 +180,6 @@ int	main(void){
 	// l - the argument is interpreted as a long int or unsigned long int (only for i, d, o, u, x, X)
 	// and as a wide character or wide character string (c and s)
 	// ll - ??
-
-
-	/* ************************ Plus ****************************** */
-	// Specifiers
-	// printing signed octal - specifier o
-	// printing scientific notation using 'E' character - specifier E
-	// printing shorter of %E or %f - specifier G
-
-	// Length
 	// L - the argument is interpreted as a long double (only for e, E, f, g, G)
 
 	return (0);

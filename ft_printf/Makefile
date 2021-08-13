@@ -6,22 +6,29 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:01:10 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/04 17:32:18 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/13 08:09:57 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # creates libftprintf.a library
 
 NAME =			libftprintf.a
-BONUS =			libftprintf.a ############### verificar se recebe o mesmo nome
+#BONUS =			libftprintf.a ############### verificar se recebe o mesmo nome
 
 # sources
-SRC_PATH =			src/
-BONUS_SRC_PATH =	bonus/
-FILES =			ft_printf.c $(SRC_PATH)$(wildcard *.c) #colocar os nomes dos arquivos
-BONUS_FILES =	ft_printf_bonus.c $(BONUS_SRC_PATH)$(wildcard *.c) #colocar os nomes dos arquivos
-OBJS =			$(FILES:.c=.o)
-BONUS_OBJS =	$(BONUS_FILES:.c=.o)
+SRC_PATH =			./src
+OBJ_PATH =			./obj
+BONUS_SRC_PATH =	./bonus/
+SRC =				$(SRC_PATH)/ft_printf.c \
+					$(SRC_PATH)/ft_printf_flags.c \
+					$(SRC_PATH)/ft_printf_specifiers.c \
+					$(SRC_PATH)/ft_printf_libft.c \
+					$(SRC_PATH)/ft_printf_char.c \
+					$(SRC_PATH)/ft_printf_hex.c  \
+					$(SRC_PATH)/ft_printf_integer.c #colocar os nomes dos arquivos
+#BONUS_FILES =	ft_printf_bonus.c $(BONUS_SRC_PATH)$(wildcard *.c) #colocar os nomes dos arquivos
+OBJ =			$(patsubst $(SRC_PATH)/%.c, $(OBJ_PATH)/%.o, $(SRC))
+#BONUS_OBJ =	$(BONUS_FILES:.c=.o)
 
 # compilation
 CC =		clang # ou usa o gcc?
@@ -34,17 +41,25 @@ RM =		-rm -f
 
 all:	$(NAME)
 
-bonus:	$(BONUS)
+message:
+		@echo $(SRC)
+		@echo $(OBJ)
 
-$(OBJS):	$(FILES)
-		$(CC) $(CFLAGS) -c $< -o $@
+#bonus:	$(BONUS)
 
-$(BONUS_OBJS):	$(BONUS_FILES)
-			$(CC) $(CFLAGS) -c $< -o $@
+b:	$(OBJ)
 
-$(NAME):	$(OBJS)
-		# ar rc $@ $(OBJS)
-		ar rc $@ $<
+$(OBJ_PATH)/%.o:	$(SRC_PATH)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+#$(OBJ):	$(SRC)
+#		$(CC) $(CFLAGS) -c $< -o $@
+
+#$(BONUS_OBJ):	$(BONUS_FILES)
+#			$(CC) $(CFLAGS) -c $< -o $@
+
+$(NAME):	$(OBJ)
+		ar rc $@ $(OBJ)
 		ranlib $@
 
 $(BONUS):	$(BONUS_OBJS)  ### sera que e bom colocar um fclean (acho que nao, por seria um relink?)
@@ -53,7 +68,7 @@ $(BONUS):	$(BONUS_OBJS)  ### sera que e bom colocar um fclean (acho que nao, por
 		ranlib $@
 
 clean:
-		$(RM) $(OBJS) $(BONUS_OBJS)
+		$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean:		clean
 		$(RM) $(NAME)
