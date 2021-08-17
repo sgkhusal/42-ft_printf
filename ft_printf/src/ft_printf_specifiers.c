@@ -6,40 +6,42 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 08:01:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 21:04:28 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 19:45:17 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char	check_specifier(const char c)
+int	check_specifier(t_flags *f, t_print *p, const char c)
 {
 	if (ft_strchr(CONVERSIONS, c))
-		return (c);
+	{
+		(*p).i++;
+		(*f).specifier = c;
+		return (HAVE_SPECIFIER);
+	}
 	else
-		return (0);
+		return (NO_SPECIFIER);
 }
 
-//int	print_specifier(t_print *p, t_flags *f, va_list args)
-int	print_specifier(t_print *p)
+void	print_specifier(t_print *p, t_flags *f, va_list args)
 {
-	/*if ((*f).specifier == 'c')
-		return(print_c(p, f, va_arg(args, char)));
+	if ((*f).specifier == '%')
+		printf_char(p, '%');
+	else if ((*f).specifier == 'c')
+		printf_c(p, f, (char)va_arg(args, int));
 	else if ((*f).specifier == 's')
-		return(print_s(p, f, va_arg(args, char *)));
-	else if ((*f).specifier == 'd')
-		return(print_d(p, f, va_arg(args, int)));
+		printf_s(p, f, va_arg(args, char *));
+	/*else if ((*f).specifier == 'd')
+		printf_d(p, f, va_arg(args, int));
 	else if ((*f).specifier == 'i')
-		return(print_i(p, f, va_arg(args, int)));
+		printf_i(p, f, va_arg(args, int));
 	else if ((*f).specifier == 'u')
-		return(print_u(p, f, va_arg(args, unsigned int)));
+		printf_u(p, f, va_arg(args, unsigned int));
 	else if ((*f).specifier == 'p')
-		return(print_p(p, f, va_arg(args, void *)));
+		printf_p(p, f, va_arg(args, void *));
 	else if ((*f).specifier == 'x')
-		return(print_low_hex(p, f, va_arg(args, char *)));
+		printf_low_hex(p, f, va_arg(args, char *));
 	else if ((*f).specifier == 'X')
-		return(print_upp_hex(p, f, va_arg(args, char *)));
-	else*/
-	(*p).i++;
-		return (write((*p).fd, "%", 1));
+		printf_upp_hex(p, f, va_arg(args, char *));*/
 }

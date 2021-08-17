@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_libft.c                                  :+:      :+:    :+:   */
+/*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/13 06:10:28 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 19:40:11 by sguilher         ###   ########.fr       */
+/*   Created: 2021/08/12 04:52:47 by sguilher          #+#    #+#             */
+/*   Updated: 2021/08/16 01:58:23 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#ifndef TEST_H
+# define TEST_H
 
-size_t	ft_strlen(const char *str)
-{
-	size_t len;
+# include "../../ft_printf/ft_printf.h"
+#include "colors.h"
+#include <stdio.h>
 
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	return (len);
-}
+# define NOT_OK	0
+# define OK		1
 
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
+void	check_return(int n1, int n2);
+void	text_tests();
+void	percentage_test();
+void	empty_var_test();
 
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s)
-	{
-		if (*s == (char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (*s == (char)c)
-			return ((char *)s);
-	return (NULL);
-}
+#endif

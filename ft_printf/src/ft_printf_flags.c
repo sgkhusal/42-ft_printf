@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 21:04:44 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 19:45:21 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,35 +65,45 @@ static void	check_flags(t_flags *f, t_print *p, const char *str, int *i)
 	{
 		put_flags(f, str[j]);
 		(*p).i++;
-		(*i)++;
 		j++;
 	}
-	check_numb_flags(f, p, &str[j], i);
+	check_numb_flags(f, p, &str[j], &j);
+	if (str[j] == PRECISION)
+	{
+		(*f).point = 1;
+		(*p).i++;
+		j++;
+		check_numb_flags(f, p, &str[j], &j);
+	}
+	(*i) = (*i) + j;
 }
 
-int	printf_flags(t_print *p, const char *str, va_list args)
+void	printf_flags(t_print *p, const char *str, va_list args)
 {
 	t_flags	f;
 	int		i;
-	char	*test; ////
 
-	i = 0;
+	f.specifier = 0;
 	f.minus = 0;
 	f.zero = 0;
 	f.plus = 0;
 	f.space = 0;
 	f.point = 0;
 	f.hashtag = 0;
-	f.specifier = 0;
-	test = va_arg(args, char *); ////
-	check_flags(&f, p, &str[i], &i);
-	check_flags(&f, p, &str[i], &i);
-	f.specifier = check_specifier(str[i]);
-	if (f.specifier != 0)
-		return (print_specifier(p));
-		//return (print_specifier(p, &f, args));
+	f.precision = 1;
+	f.width = 0;
+	/*if (check_specifier(&f, p, str[0]) == 1) // pode tirar o if e deixar so o else
+		print_specifier(p, &f, args);
 	else
-		return(write((*p).fd, "%", 1));
-	///// verificar se a printf nao imprime as flags no caso de nao ter um specifier!!!!
-	// se for o caso, precisa colocar uma funcao para voltar e imprimir na ordem correta!!
+	{*/
+		i = 0;
+		check_flags(&f, p, &str[i], &i);
+		if (check_specifier(&f, p, str[i]) == HAVE_SPECIFIER)
+			print_specifier(p, &f, args);
+		else
+		{
+			printf_char(p, '%');
+			(*p).i = (*p).i - i;
+		}
+	/*}*/
 }

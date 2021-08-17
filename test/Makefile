@@ -6,42 +6,39 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:03:39 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/13 21:05:42 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/16 02:16:53 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ft_printf source
 PRINTF_PATH =	../ft_printf/
 TEST_PATH =		../test/
+UTILS_PATH =			./utils/
 
 NAME =			test.out
-BONUS_NAME = 	bonus.out
+BONUS = 		bonus.out
 PRINTF =		$(PRINTF_PATH)libftprintf.a
 TEST =			test.c
-BONUS_TEST =	test_bonus.c
+BONUS_TEST =	bonus.c
+UTILS =			$(wildcard $(UTILS_PATH)*.c)
 
 # compilation
 CC =		clang
 CFLAGS =	-Wall -Werror -Wextra
 RM =		-rm -f
 
-all:	m cat
+all:	printf m b cat
 
-m:	printf
-	$(CC) $(CFLAGS) $(TEST) $(PRINTF) -o $(NAME)
+m:
+	$(CC) $(TEST) $(UTILS) $(PRINTF) -o $(NAME)
 	./$(NAME)
 
-b:	bonus
-	$(CC) $(CFLAGS) $(BONUS_TEST) $(PRINTF) -o $(BONUS_NAME)
+b:
+	$(CC) $(BONUS_TEST) $(UTILS) $(PRINTF) -o $(BONUS)
+	./$(BONUS)
 
 printf:
-		@cd $(PRINTF_PATH) && $(MAKE)
-
-bonus:
-		cd $(PRINTF_PATH)
-		make fclean
-		make bonus
-		cd $(TEST_PATH)
+		cd $(PRINTF_PATH) && $(MAKE)
 
 cat:
 	@echo "\n"
@@ -65,11 +62,10 @@ cat:
 	@echo ""
 
 clean:
-		$(RM) $(OBJS) $(BONUS_OBJS)
+		$(RM) $(NAME) $(BONUS)
 		@cd $(PRINTF_PATH) && $(MAKE) $@
 
 fclean:		clean
-		$(RM) $(NAME)
 		@cd $(PRINTF_PATH) && $(MAKE) $@
 
 re:			fclean all

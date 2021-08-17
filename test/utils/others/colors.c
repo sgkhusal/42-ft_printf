@@ -6,11 +6,11 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:46:13 by sguilher          #+#    #+#             */
-/*   Updated: 2021/07/07 19:56:03 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/16 02:01:14 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "colors.h"
+#include "../colors.h"
 #include <stdio.h>
 
 int	main(void){
