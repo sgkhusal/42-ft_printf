@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:22 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 20:56:50 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 23:02:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	printf_putstr_fd(t_print *p, const char *s, int size)
 
 void	printf_c(t_print *p, t_flags *f, char c)
 {
-	if ((*f).minus == 1)
+	if ((*f).minus == YES)
 		printf_putchar_fd(p, c);
 	while ((*f).width > 1)
 	{

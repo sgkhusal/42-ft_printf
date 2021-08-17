@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:03:39 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/17 19:55:00 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/17 23:36:44 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,9 @@ RM =		-rm -f
 
 all:	printf $(NAME) $(BONUS) cat
 
-m:		$(NAME) cat
+m:		printf $(NAME) cat
 
-b:		$(BONUS) cat
+b:		printf $(BONUS) cat
 
 $(NAME):
 	$(CC) $(TEST) $(UTILS) $(PRINTF) -o $@

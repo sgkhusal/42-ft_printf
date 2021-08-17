@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 20:57:14 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 23:27:56 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdlib.h>
 #include <stdio.h> ///////////////////////////////
 
 # define STDOUT	1
@@ -57,9 +58,8 @@ void	printf_putstr_fd(t_print *p, const char *s, int size);
 void	printf_putchar_fd(t_print *p, char c);
 void	printf_c(t_print *p, t_flags *f, char c);
 void	printf_s(t_print *p, t_flags *f, char *str);
-void	printf_d(t_print *p, t_flags *f, int n);
-void	printf_i(t_print *p, t_flags *f, int n);
-void	printf_u(t_print *p, t_flags *f, unsigned int n);
+void	printf_id(t_print *p, t_flags *f, long int n);
+void	printf_u(t_print *p, t_flags *f, va_list args);
 void	printf_p(t_print *p, t_flags *f, void *);
 void	printf_low_hex(t_print *p, t_flags *f, char *hex);
 void	printf_upp_hex(t_print *p, t_flags *f, char *hex);
@@ -67,5 +67,7 @@ void	printf_upp_hex(t_print *p, t_flags *f, char *hex);
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
 int	ft_isdigit(int c);
+char	*printf_itoa(unsigned int n);
+int	printf_nbsize(unsigned int n);
 
 #endif

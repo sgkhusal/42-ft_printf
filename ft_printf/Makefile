@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:01:10 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/13 22:38:36 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/17 23:26:58 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ SRC =				$(SRC_PATH)/ft_printf.c \
 					$(SRC_PATH)/ft_printf_specifiers.c \
 					$(SRC_PATH)/ft_printf_libft.c \
 					$(SRC_PATH)/ft_printf_char.c \
+					$(SRC_PATH)/ft_printf_integer.c \
+					$(SRC_PATH)/ft_printf_itoa.c \
 					#$(SRC_PATH)/ft_printf_hex.c  \
-					$(SRC_PATH)/ft_printf_integer.c #colocar os nomes dos arquivos
+					#colocar os nomes dos arquivos
 #BONUS_FILES =	ft_printf_bonus.c $(BONUS_SRC_PATH)$(wildcard *.c) #colocar os nomes dos arquivos
 OBJ =			$(patsubst $(SRC_PATH)/%.c, $(OBJ_PATH)/%.o, $(SRC))
 #BONUS_OBJ =	$(BONUS_FILES:.c=.o)

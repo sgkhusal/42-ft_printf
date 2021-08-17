@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:40:46 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/16 03:48:44 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 23:32:06 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,26 @@ void	s_test()
 	check_return(result1, result2);
 }
 
+void	di_test()
+{
+	int	result1;
+	int	result2;
+	int	i = -42;
+
+	// printing signed decimal integer - specifiers d and i
+	printf(LIGHT_RED("\n\nprinting signed decimal integer - specifiers d and i:\n"));
+	result1 = printf(LIGHT_BLUE2("number %%d = %d\n"), i);
+	result1 = ft_printf(LIGHT_BLUE2("number %%d = %d\n"), i);
+	check_return(result1, result2);
+	/*printf(LIGHT_BLUE2("number %%d using pointer = %d\n"), *ptr);
+	printf(LIGHT_BLUE2("number %%d > maximum signed integer = %d\n"), 2147483648);
+	printf(LIGHT_BLUE2("number %%d < minimum signed integer = %d\n"), -2147483649);
+	printf(LIGHT_BLUE2("number %%i = %i\n"), i);
+	printf(LIGHT_BLUE2("number %%i using pointer = %i\n"), *ptr);
+	printf(LIGHT_BLUE2("number %%i > maximum signed integer = %i\n"), 2147483648);
+	printf(LIGHT_BLUE2("number %%i < minimum signed integer = %i\n"), -2147483649);*/
+}
+
 /*void	_test()
 {
 	int	result1;
@@ -66,31 +86,20 @@ int	main(void){
 	//empty_var_test();
 	c_test();
 	s_test();
+	di_test();
 
 	//
-	//int		i = -42;
 	//unsigned int	j = 42;
-	//int *ptr = &i;
-
-	// printing signed decimal integer - specifiers d and i
-	/*printf(LIGHT_RED("\n\nprinting signed decimal integer - specifiers d and i:\n"));
-	printf(LIGHT_BLUE2("number %%d = %d\n"), i);
-	printf(LIGHT_BLUE2("number %%d using pointer = %d\n"), *ptr);
-	printf(LIGHT_BLUE2("number %%d > maximum signed integer = %d\n"), 2147483648);
-	printf(LIGHT_BLUE2("number %%d < minimum signed integer = %d\n"), -2147483649);
-	printf(LIGHT_BLUE2("number %%i = %i\n"), i);
-	printf(LIGHT_BLUE2("number %%i using pointer = %i\n"), *ptr);
-	printf(LIGHT_BLUE2("number %%i > maximum signed integer = %i\n"), 2147483648);
-	printf(LIGHT_BLUE2("number %%i < minimum signed integer = %i\n"), -2147483649);
 
 	// printing unsigned integer - specifier u:
-	printf(LIGHT_RED("\n\nprinting unsigned integer - specifier u:\n"));
+	/*printf(LIGHT_RED("\n\nprinting unsigned integer - specifier u:\n"));
 	printf(LIGHT_BLUE2("number %%u = %u\n"), j);
 	printf(LIGHT_BLUE2("number %%u negative = %u\n"), i);
 	printf(LIGHT_BLUE2("number %%u < 0 = %u\n"), -1);
 	printf(LIGHT_BLUE2("number %%u > maximum unsigned integer = %u\n"), 4294967296);
 	printf(LIGHT_BLUE2("number %%u > maximum unsigned integer = %u\n"), 4294967297);
 
+	//int *ptr = &i;
 	// printing pointer - specifier p
 	printf(LIGHT_RED("\n\nprinting pointer - specifier p:\n"));
 	printf(LIGHT_BLUE2("char pointer %%p = %p\n"), &c);
