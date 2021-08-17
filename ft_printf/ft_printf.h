@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 19:45:19 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 20:57:14 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # define CONVERSIONS "%cspdiuxX"
 # define FLAGS "-0+ #"
 # define PRECISION 46
-# define NO_SPECIFIER 0
-# define HAVE_SPECIFIER 1
+# define NO 0
+# define YES 1
 
 typedef struct		s_flags
 {
@@ -53,7 +53,8 @@ void	printf_flags(t_print *p, const char *str, va_list args);
 
 int	check_specifier(t_flags *f, t_print *p, const char c);
 void	print_specifier(t_print *p, t_flags *f, va_list args);
-void	printf_char(t_print *p, char c);
+void	printf_putstr_fd(t_print *p, const char *s, int size);
+void	printf_putchar_fd(t_print *p, char c);
 void	printf_c(t_print *p, t_flags *f, char c);
 void	printf_s(t_print *p, t_flags *f, char *str);
 void	printf_d(t_print *p, t_flags *f, int n);

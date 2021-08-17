@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 19:45:21 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 20:41:37 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,26 @@
 int		ft_printf_atoi(t_print *p, const char *nptr, int *i)
 {
 	unsigned long long		n;
-	int						j;
 
-	j = 0;
 	n = 0;
-	while (ft_isdigit(nptr[j]))
+	while (ft_isdigit(*nptr))
 	{
-		n = n * 10 + (nptr[j] - 48);
-		j++;
+		n = n * 10 + (*nptr - 48);
+		nptr++;
 		(*p).i++;
 		(*i)++;
 	}
 	return (n);
 }
 
-static void	check_numb_flags(t_flags *f, t_print *p, const char *str, int *i)
+static void	check_numb_flags(t_flags *f, t_print *p, const char *s, int *i)
 {
-	if (ft_isdigit(str[0]))
+	if (ft_isdigit(s[0]))
 	{
 		if ((*f).point == 1)
-			(*f).precision = ft_printf_atoi(p, str, i);
+			(*f).precision = ft_printf_atoi(p, s, i);
 		else
-			(*f).width = ft_printf_atoi(p, str, i);
+			(*f).width = ft_printf_atoi(p, s, i);
 	}
 }
 
@@ -56,29 +54,29 @@ static void	put_flags(t_flags *f, const char c)
 		(*f).hashtag = 1;
 }
 
-static void	check_flags(t_flags *f, t_print *p, const char *str, int *i)
+static void	check_flags(t_flags *f, t_print *p, const char *s, int *i)
 {
 	int	j;
 
 	j = 0;
-	while (ft_strchr(FLAGS, str[j]))
+	while (ft_strchr(FLAGS, s[j]))
 	{
-		put_flags(f, str[j]);
+		put_flags(f, s[j]);
 		(*p).i++;
 		j++;
 	}
-	check_numb_flags(f, p, &str[j], &j);
-	if (str[j] == PRECISION)
+	check_numb_flags(f, p, &s[j], &j);
+	if (s[j] == PRECISION)
 	{
 		(*f).point = 1;
 		(*p).i++;
 		j++;
-		check_numb_flags(f, p, &str[j], &j);
+		check_numb_flags(f, p, &s[j], &j);
 	}
 	(*i) = (*i) + j;
 }
 
-void	printf_flags(t_print *p, const char *str, va_list args)
+void	printf_flags(t_print *p, const char *s, va_list args)
 {
 	t_flags	f;
 	int		i;
@@ -92,17 +90,17 @@ void	printf_flags(t_print *p, const char *str, va_list args)
 	f.hashtag = 0;
 	f.precision = 1;
 	f.width = 0;
-	/*if (check_specifier(&f, p, str[0]) == 1) // pode tirar o if e deixar so o else
+	/*if (check_specifier(&f, p, s[0]) == 1) // pode tirar o if e deixar so o else
 		print_specifier(p, &f, args);
 	else
 	{*/
 		i = 0;
-		check_flags(&f, p, &str[i], &i);
-		if (check_specifier(&f, p, str[i]) == HAVE_SPECIFIER)
+		check_flags(&f, p, &s[i], &i);
+		if (check_specifier(&f, p, s[i]) == YES)
 			print_specifier(p, &f, args);
 		else
 		{
-			printf_char(p, '%');
+			printf_putchar_fd(p, '%');
 			(*p).i = (*p).i - i;
 		}
 	/*}*/

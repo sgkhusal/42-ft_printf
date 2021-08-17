@@ -6,30 +6,35 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:22 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/16 04:02:25 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 20:56:50 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	printf_char(t_print *p, char c)
+void	printf_putchar_fd(t_print *p, char c)
 {
 	write((*p).fd, &c, 1);
 	(*p).len++;
 }
 
+void	printf_putstr_fd(t_print *p, const char *s, int size)
+{
+	if (s)
+		(*p).len = (*p).len + write((*p).fd, s, size);
+}
+
 void	printf_c(t_print *p, t_flags *f, char c)
 {
 	if ((*f).minus == 1)
-		printf_char(p, c);
+		printf_putchar_fd(p, c);
 	while ((*f).width > 1)
 	{
-		write((*p).fd, " ", 1); // pode substituir por printf_char(p, ' ');
-		(*p).len++;
+		printf_putchar_fd(p, ' ');
 		(*f).width--;
 	}
 	if ((*f).minus == 0)
-		printf_char(p, c);
+		printf_putchar_fd(p, c);
 }
 
 void	printf_s(t_print *p, t_flags *f, char *s)
@@ -39,8 +44,7 @@ void	printf_s(t_print *p, t_flags *f, char *s)
 	len = ft_strlen(s);
 	while((*f).width > len)
 	{
-		write((*p).fd, " ", 1); // pode substituir por printf_char(p, ' ');
-		(*p).len++;
+		printf_putchar_fd(p, ' ');
 		(*f).width--;
 	}
 	write((*p).fd, s, len);

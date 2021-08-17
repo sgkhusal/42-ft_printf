@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:03:39 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/16 02:16:53 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/17 19:55:00 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,15 +27,19 @@ CC =		clang
 CFLAGS =	-Wall -Werror -Wextra
 RM =		-rm -f
 
-all:	printf m b cat
+all:	printf $(NAME) $(BONUS) cat
 
-m:
-	$(CC) $(TEST) $(UTILS) $(PRINTF) -o $(NAME)
-	./$(NAME)
+m:		$(NAME) cat
 
-b:
-	$(CC) $(BONUS_TEST) $(UTILS) $(PRINTF) -o $(BONUS)
-	./$(BONUS)
+b:		$(BONUS) cat
+
+$(NAME):
+	$(CC) $(TEST) $(UTILS) $(PRINTF) -o $@
+	./$@
+
+$(BONUS):
+	$(CC) $(BONUS_TEST) $(UTILS) $(PRINTF) -o $@
+	./$@
 
 printf:
 		cd $(PRINTF_PATH) && $(MAKE)

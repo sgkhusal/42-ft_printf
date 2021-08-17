@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 08:01:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 19:45:17 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/17 20:58:03 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int	check_specifier(t_flags *f, t_print *p, const char c)
 	{
 		(*p).i++;
 		(*f).specifier = c;
-		return (HAVE_SPECIFIER);
+		return (YES);
 	}
 	else
-		return (NO_SPECIFIER);
+		return (NO);
 }
 
 void	print_specifier(t_print *p, t_flags *f, va_list args)
 {
 	if ((*f).specifier == '%')
-		printf_char(p, '%');
+		printf_putchar_fd(p, '%');
 	else if ((*f).specifier == 'c')
 		printf_c(p, f, (char)va_arg(args, int));
 	else if ((*f).specifier == 's')
