@@ -1,61 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_itoa.c                                   :+:      :+:    :+:   */
+/*   ft_printf_itohex.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 18:53:38 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 20:57:47 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 21:13:21 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	printf_nbsize(unsigned int n)
+char	itohex_conversion(int n, char x)
 {
-	int	size;
-
-	size = 0;
-	while (n)
-	{
-		n = n / 10;
-		size++;
-	}
-	return (size);
+	if (n < 10)
+		return (n + '0');
+	else if (x == LOWER_HEX)
+		return ((n - 10) + 'a');
+	else if (x == UPPER_HEX)
+		return ((n - 10) + 'A');
+	else
+		return (0);
 }
 
-int	printf_nbflags_size(long int n, t_flags *f)
+char	*printf_itohex(unsigned int n, char hconversion)
 {
-	int	size;
-
-	size = 0;
-	if (n <= 0)
-		size++;
-	else if ((*f).plus == YES || (*f).space == YES)
-		size++;
-	return (size);
-}
-
-char	*printf_itoa(unsigned int n)
-{
-	char	*charnb;
+	char	*hexnb;
 	int		size;
 
 	size = printf_nbsize(n);
-	charnb = NULL;
+	hexnb = NULL;
 	if (size > 0)
-		charnb = (char *)malloc((size + 1) * sizeof(char));
-	if (!(charnb))
+		hexnb = (char *)malloc((size + 1) * sizeof(char));
+	if (!(hexnb))
 		return (NULL);
 	else
 	{
-		charnb[size] = '\0';
-		while (--size >= 0)
+		hexnb[size] = '\0';
+		while (--size >= 0 && n >= 16)
 		{
-			charnb[size] = (n % 10) + '0';
-			n = n / 10;
+			hexnb[size] = itohex_conversion(n % 16, hconversion);
+			n = n / 16;
 		}
-		return (charnb);
+		return (hexnb);
 	}
 }

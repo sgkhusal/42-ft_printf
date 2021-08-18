@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 22:46:27 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 17:39:38 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 20:13:21 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,8 +116,9 @@ int	main(void){
 	printf(LIGHT_BLUE2("string pointer %%p = %p\n"), &str[0]);
 	printf(LIGHT_BLUE2("int pointer %%p = %p\n"), ptr);
 	printf(LIGHT_BLUE2("unsigned int pointer %%p = %p\n"), &j);
-	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));
-
+	printf(PINK("\n------------------------------- Write function ----------------------------\n\n"));
+	int **pptr = &ptr;
+	write(1, &pptr, 14);
 	// printing unsigned hex integer lowercase - specifier x
 	printf(LIGHT_RED("\n\nprinting unsigned hex integer lowercase - specifier x:\n"));
 	printf(LIGHT_BLUE2("unsigned hex integer %%x = %x\n"), j);

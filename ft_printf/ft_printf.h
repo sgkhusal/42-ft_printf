@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 05:34:39 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 21:47:16 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,17 @@
 # define STDOUT	1
 # define CONVERSIONS "%cspdiuxX"
 # define FLAGS "-0+ #"
-# define PRECISION 46
+# define PRECISION '.'
 # define NO 0
 # define YES 1
+# define CHAR 'c'
+# define STRING 's'
+# define D_INT 'd'
+# define INT 'i'
+# define U_INT 'u'
+# define LOWER_HEX 'x'
+# define UPPER_HEX 'X'
+# define POINTER 'p'
 
 typedef struct		s_flags
 {
@@ -61,8 +69,7 @@ void	printf_s(t_print *p, t_flags *f, char *str);
 void	printf_id(t_print *p, t_flags *f, long int n);
 void	printf_u(t_print *p, t_flags *f, unsigned int n);
 void	printf_p(t_print *p, t_flags *f, void *);
-void	printf_low_hex(t_print *p, t_flags *f, char *hex);
-void	printf_upp_hex(t_print *p, t_flags *f, char *hex);
+void	printf_hex(t_print *p, t_flags *f, unsigned int n);
 
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
@@ -70,5 +77,7 @@ int	ft_isdigit(int c);
 char	*printf_itoa(unsigned int n);
 int	printf_nbsize(unsigned int n);
 int	printf_nbflags_size(long int n, t_flags *f);
+char	*printf_itohex(unsigned int n, char hconversion);
+char	itohex_conversion(int n, char x);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:53:27 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 17:37:43 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 20:14:04 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "../test/utils/colors.h"
 # include <stdio.h>
+# include <unistd.h>
 
 # define PURPLE(string)			"\033[38;5;200m" string "\033[0m"
 # define PURPLE2(string)		"\033[0;35m" string "\033[0m"

@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 06:31:49 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 21:16:39 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	printf_number(t_print *p, unsigned int n)
 	else
 	{
 		nchar = printf_itoa(n);
-		printf_putstr_fd(p, nchar, strlen(nchar));// pode ser substituido pelo nbsize
+		printf_putstr_fd(p, nchar, ft_strlen(nchar));// pode ser substituido pelo nbsize
 		free(nchar);
 	}
 }
