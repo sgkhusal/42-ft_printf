@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:03:39 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/17 23:36:44 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/18 03:44:48 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,12 @@ b:		printf $(BONUS) cat
 $(NAME):
 	$(CC) $(TEST) $(UTILS) $(PRINTF) -o $@
 	./$@
+	$(RM) $@
 
 $(BONUS):
 	$(CC) $(BONUS_TEST) $(UTILS) $(PRINTF) -o $@
 	./$@
+	$(RM) $@
 
 printf:
 		cd $(PRINTF_PATH) && $(MAKE)

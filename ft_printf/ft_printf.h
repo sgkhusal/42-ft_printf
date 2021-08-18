@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 23:27:56 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 05:34:39 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ typedef struct		s_flags
 	int				space;
 	int				hashtag;
 	int				point;
-	size_t			width;
-	size_t			precision;
+	int				width;
+	int				precision;
 }					t_flags;
 
 typedef struct		s_print
@@ -59,7 +59,7 @@ void	printf_putchar_fd(t_print *p, char c);
 void	printf_c(t_print *p, t_flags *f, char c);
 void	printf_s(t_print *p, t_flags *f, char *str);
 void	printf_id(t_print *p, t_flags *f, long int n);
-void	printf_u(t_print *p, t_flags *f, va_list args);
+void	printf_u(t_print *p, t_flags *f, unsigned int n);
 void	printf_p(t_print *p, t_flags *f, void *);
 void	printf_low_hex(t_print *p, t_flags *f, char *hex);
 void	printf_upp_hex(t_print *p, t_flags *f, char *hex);
@@ -69,5 +69,6 @@ size_t	ft_strlen(const char *str);
 int	ft_isdigit(int c);
 char	*printf_itoa(unsigned int n);
 int	printf_nbsize(unsigned int n);
+int	printf_nbflags_size(long int n, t_flags *f);
 
 #endif

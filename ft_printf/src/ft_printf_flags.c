@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 21:28:40 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 06:31:16 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void	check_numb_flags(t_flags *f, t_print *p, const char *s, int *i)
 		else
 			(*f).width = ft_printf_atoi(p, s, i);
 	}
+	//printf("\ncheck_numb_flags width = %i\n", (*f).width);
 }
 
 static void	put_flags(t_flags *f, const char c)
@@ -66,6 +67,7 @@ static void	check_flags(t_flags *f, t_print *p, const char *s, int *i)
 		j++;
 	}
 	check_numb_flags(f, p, &s[j], &j);
+	//printf("\ncheck_flags width = %i\n", (*f).width);
 	if (s[j] == PRECISION)
 	{
 		(*f).point = YES;

@@ -6,80 +6,116 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 23:56:42 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 06:31:49 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	printf_number_flags(t_print *p, t_flags *f)//, int *size)
+void	printf_number_flags(t_print *p, t_flags *f)
 {
 	if ((*f).plus == YES)
 	{
 		printf_putchar_fd(p, '+');
-		//size++;
+		(*f).width--;
 	}
 	else if ((*f).space == YES)
 	{
 		printf_putchar_fd(p, ' ');
-		//size++;
+		(*f).width--;
 	}
 }
 
-void	printf_number_width(t_print *p, t_flags *f)//, unsigned int n)
+void	printf_number_width(t_print *p, t_flags *f)
 {
-	if((*f).zero == YES)
-		printf_putchar_fd(p, '0');
+	if((*f).minus == NO)
+	{
+		if ((*f).zero == YES)
+			printf_putchar_fd(p, '0');
+		else
+			printf_putchar_fd(p, ' ');
+	}
 	else
 		printf_putchar_fd(p, ' ');
 }
 
-void	printf_number(t_print *p, long int n)
+void	printf_number(t_print *p, unsigned int n)
 {
 	char	*nchar;
 
-	nchar = printf_itoa(n);
-	//write(1, "\nresultado do itoa: ", 21);
-	//write(1, nchar, 2);
-	//write(1, "\n", 1);
-	//printf("n no printf_number = %ld\n", n);
-	printf_putstr_fd(p, nchar, strlen(nchar)); // pode ser substituido pelo size
-	free(nchar);
+	if (n == 0)
+		printf_putchar_fd(p, '0');
+	else
+	{
+		nchar = printf_itoa(n);
+		printf_putstr_fd(p, nchar, strlen(nchar));// pode ser substituido pelo nbsize
+		free(nchar);
+	}
+}
+
+void	printf_idnumber(t_print *p, t_flags *f, long int n)
+{
+	if (n < 0)
+	{
+		printf_putchar_fd(p, '-');
+		n *= -1;
+	}
+	else
+		printf_number_flags(p, f);
+	printf_number(p, n);
 }
 
 void	printf_id(t_print *p, t_flags *f, long int n)
 {
-	//write(1, "\nidentificou o d\n", 18);
-	//printf("\nn = %ld", n);
-	//if ((*f).minus == YES)
-	//{
-		if (n < 0)
+	int	size;
+
+	size = printf_nbsize(n) + printf_nbflags_size(n, f);
+	//printf("\nwidth = %i\n", (*f).width);
+	if ((*f).minus == YES)
+	{
+		printf_idnumber(p, f, n);
+		(*f).width -= size;
+		while ((*f).width > 0)
 		{
-			printf_putchar_fd(p, '-');
-			n *= -1;
-			//write(1, "\nidentificou numero negativo\n", 30);
+			printf_number_width(p, f);
+			(*f).width--;
 		}
-		else
-			printf_number_flags(p, f);
-		printf_number(p, n);
-	//}
+	}
+	else
+	{
+		while ((*f).width > size)
+		{
+			printf_number_width(p, f);
+			(*f).width--;
+		}
+		printf_idnumber(p, f, n);
+	}
 }
 
-/*void	printf_u(t_print *p, t_flags *f, unsigned int n)
+void	printf_u(t_print *p, t_flags *f, unsigned int n)
 {
-	int				size;
-	unsigned int	n;
+	int	size;
 
-	n = va_arg(args, unsigned int);
-	size = nbsize(n);
+	size = printf_nbsize(n) + printf_nbflags_size(n, f);
 	if ((*f).minus == YES)
 	{
 		printf_number_flags(p, f);
-		printf_number(p, f, n);
+		printf_number(p, n);
+		(*f).width -= size;
+		while ((*f).width > 0)
+		{
+			printf_number_width(p, f);
+			(*f).width--;
+		}
 	}
-	while ((*f).width > size)
+	else
 	{
-		printf_putchar_fd(p, ' ');
-		(*f).width--;
+		while ((*f).width > size)
+		{
+			printf_number_width(p, f);
+			(*f).width--;
+		}
+		printf_number_flags(p, f);
+		printf_number(p, n);
 	}
-}*/
+}

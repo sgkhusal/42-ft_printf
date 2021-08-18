@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:09:44 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/16 05:05:06 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 06:38:01 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,70 @@ void	c_bonus_test()
 	printf("%35s = |%0-5.c|\n", "%%0-5.c", c);*/
 }
 
+void	id_bonus_test()
+{
+	int	result1;
+	int	result2;
+
+	printf(PINK("\nprintinG integer with Flags - specifier i or d:\n"));
+	printf(LIGHT_BLUE2("test 1:\n"));
+	result1 = printf("%%5i = |%5i|\n", 42);
+	result2 = ft_printf("%%5i = |%5i|\n", 42);
+	check_return(result1, result2);
+	result1 = printf("%%-5i = |%-5i|\n", 42);
+	result2 = ft_printf("%%-5i = |%-5i|\n", 42);
+	check_return(result1, result2);
+	result1 = printf("%%5i = |%5i|\n", -42);
+	result2 = ft_printf("%%5i = |%5i|\n", -42);
+	check_return(result1, result2);
+	result1 = printf("%%-5i = |%-5i|\n", -42);
+	result2 = ft_printf("%%-5i = |%-5i|\n", -42);
+	check_return(result1, result2);
+	result1 = printf("%%05i = |%05i|\n", 42);
+	result2 = ft_printf("%%05i = |%05i|\n", 42);
+	check_return(result1, result2);
+	result1 = printf("%%05i = |%05i|\n", -42);
+	result2 = ft_printf("%%05i = |%05i|\n", -42);
+	check_return(result1, result2);
+	result1 = printf("%%+5i = |%+5i|\n", 42);
+	result2 = ft_printf("%%+5i = |%+5i|\n", 42);
+	check_return(result1, result2);
+	result1 = printf("%%+05i = |%+05i|\n", 42);
+	result2 = ft_printf("%%+05i = |%+05i|\n", 42);
+	check_return(result1, result2);
+	result1 = printf("%% 5i = |% 5i|\n", 42);
+	result2 = ft_printf("%% 5i = |% 5i|\n", 42);
+	check_return(result1, result2);
+	result1 = printf("%% 05i = |% 05i|\n", 42);
+	result2 = ft_printf("%% 05i = |% 05i|\n", 42);
+	check_return(result1, result2);
+	result1 = printf("%%-05i = |%-05i|\n", 42);
+	result2 = ft_printf("%%-05i = |%-05i|\n", 42);
+	check_return(result1, result2);
+	result1 = printf("%%10i = |%10i|\n", 1000000);
+	result2 = ft_printf("%%10i = |%10i|\n", 1000000);
+	check_return(result1, result2);
+	result1 = printf("%%010i = |%010i|\n", 1000000);
+	result2 = ft_printf("%%010i = |%010i|\n", 1000000);
+	check_return(result1, result2);
+	result1 = printf("%%-010i = |%-010i|\n", 1000000);
+	result2 = ft_printf("%%-010i = |%-010i|\n", 1000000);
+	check_return(result1, result2);
+}
+
+void	u_bonus_test()
+{
+	int	result1;
+	int	result2;
+
+	printf("%%15u = |%15u|\n", 100000000);
+	printf("width with flag   %%015u = |%015u|\n", 100000000);
+	printf("width with flag   %%-015u = |%-015u|\n", 100000000);
+}
+
 int	main(){
 	c_bonus_test();
+	id_bonus_test();
+	//u_bonus_test();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 18:53:38 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 23:56:54 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 05:37:11 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,18 @@ int	printf_nbsize(unsigned int n)
 		n = n / 10;
 		size++;
 	}
+	return (size);
+}
+
+int	printf_nbflags_size(long int n, t_flags *f)
+{
+	int	size;
+
+	size = 0;
+	if (n <= 0)
+		size++;
+	else if ((*f).plus == YES || (*f).space == YES)
+		size++;
 	return (size);
 }
 

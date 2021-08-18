@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 08:01:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 23:23:35 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 03:53:46 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	print_specifier(t_print *p, t_flags *f, va_list args)
 		printf_id(p, f, (long int)va_arg(args, int));
 	else if ((*f).specifier == 'i')
 		printf_id(p, f, (long int)va_arg(args, int));
-	/*else if ((*f).specifier == 'u')
+	else if ((*f).specifier == 'u')
 		printf_u(p, f, va_arg(args, unsigned int));
-	else if ((*f).specifier == 'p')
+	/*else if ((*f).specifier == 'p')
 		printf_p(p, f, va_arg(args, void *));
 	else if ((*f).specifier == 'x')
 		printf_low_hex(p, f, va_arg(args, char *));
