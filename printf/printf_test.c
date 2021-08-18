@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 22:46:27 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/13 19:58:49 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 17:39:38 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void){
 	// return value: the total number of characters written. On failure, return a negative number.
 
 	printf(LIGHT_PURPLE("\nLet's see how printf function works?\n\n"));
-	printf(LIGHT_BLUE2("formatation tags: %%[flags][width][.precision][length]specifier\n\n"));
+	/*printf(LIGHT_BLUE2("formatation tags: %%[flags][width][.precision][length]specifier\n\n"));
 	printf(LIGHT_PURPLE("************************************* Mandatory *************************************\n\n"));
 	printf(LIGHT_RED("Printf return:\n\n"));
 	int	result;
@@ -30,16 +30,16 @@ int	main(void){
 	result = printf("%25s", "printing with printf\n");
 	printf("printf return = %i\n", result);
 	result = printf(LIGHT_BLUE2("%25s"), "printing with printf\n"); // LIGHT_BLUE2 = 10 + 4
-	printf("printf return = %i = 25 (width) + 14 (LIGHT_BLUE2 format size)\n", result);
+	printf("printf return = %i = 25 (width) + 14 (LIGHT_BLUE2 format size)\n", result);*/
 
-	/*printf(LIGHT_RED("Specifiers: c, s, d, i, u, p, x and X\n\n"));
+	/*printf(LIGHT_RED("Specifiers: c, s, d, i, u, p, x and X\n\n"));*/
 
 	char	c = 'a';
 	char	str[13] = "Hello World!";
 	int		i = -42;
 	unsigned int	j = 42;
 	int *ptr = &i;
-
+/*
 	// ***************** basic printing tests ************************ \\
 
 	// printing %
@@ -108,7 +108,7 @@ int	main(void){
 	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));
 	printf(LIGHT_BLUE2("%%10u = |%10u|\n"), j);
 	printf(LIGHT_BLUE2("width with flag   %%010u = |%010u|\n"), j);
-	printf(LIGHT_BLUE2("width with flag   %%-010u = |%-010u|\n"), j);
+	printf(LIGHT_BLUE2("width with flag   %%-010u = |%-010u|\n"), j);*/
 
 	// printing pointer - specifier p
 	printf(LIGHT_RED("\n\nprinting pointer - specifier p:\n"));
@@ -128,11 +128,11 @@ int	main(void){
 	printf(LIGHT_RED("\n\nprinting unsigned hex integer uppercase - specifier X:\n"));
 	printf(LIGHT_BLUE2("unsigned hex integer %%X = %X\n"), j);
 	printf(LIGHT_BLUE2("unsigned hex integer with negative number %%X = %X\n"), i);
-	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));*/
+	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));
 
 
 	/* ************************ Bonus ****************************** */
-	printf(LIGHT_PURPLE("\n************************ BONUS ******************************\n\n"));
+	//printf(LIGHT_PURPLE("\n************************ BONUS ******************************\n\n"));
 
 	// Flags:
 	// The flag '-' left-justifies within the given field width. Right justification is the default
