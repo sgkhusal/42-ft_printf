@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 21:47:16 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 22:26:56 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,5 @@ char	*printf_itoa(unsigned int n);
 int	printf_nbsize(unsigned int n);
 int	printf_nbflags_size(long int n, t_flags *f);
 char	*printf_itohex(unsigned int n, char hconversion);
-char	itohex_conversion(int n, char x);
 
 #endif

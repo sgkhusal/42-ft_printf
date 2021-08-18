@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:26 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 21:25:44 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 22:18:10 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static void	printf_hash(t_print *p, t_flags *f)
 void	printf_hex(t_print *p, t_flags *f, unsigned int n)
 {
 	char *hex;
-
 	if (n == 0)
 		printf_putchar_fd(p, '0');
 	else
