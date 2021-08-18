@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:29:24 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/16 02:13:55 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 23:11:00 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,6 @@ void	text_tests()
 	check_return(result1, result2);
 	result1 = printf("\rcarriage return \\r\n");
 	result2 = ft_printf("\rcarriage return \\r\n");
-	check_return(result1, result2);
-	result1 = printf("\ttab \\t\n");
-	result2 = ft_printf("\ttab \\t\n");
 	check_return(result1, result2);
 	result1 = printf("\vvertical tab \\v\n");
 	result2 = ft_printf("\vvertical tab \\v\n");

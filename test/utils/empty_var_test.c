@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:36:35 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/16 03:48:10 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 23:16:32 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ void	empty_var_test()
 
 	/* the next texts give error in printf when compiled with the flags -Wall -Wextra -Werror*/
 	printf(PINK("\nwhen we do not indicate the variable, it prints anything from a place in the memory according with the variable type:\n"));
-	/*printf(LIGHT_BLUE2("%%c: %c\n"));
+	printf(LIGHT_BLUE2("%%c: %c\n"));
 	ft_printf(LIGHT_BLUE2("%%c: %c\n"));
 	printf(LIGHT_BLUE2("%%i: %i\n"));
-	printf(LIGHT_BLUE2("%%x: %x\n"));*/
+	ft_printf(LIGHT_BLUE2("%%i: %i\n"));
+	printf(LIGHT_BLUE2("%%x: %x\n"));
+	ft_printf(LIGHT_BLUE2("%%x: %x\n"));
 }

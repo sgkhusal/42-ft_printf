@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:30:39 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/16 03:55:15 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/18 23:16:54 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ void	percentage_test()
 	result2 = ft_printf("100%%\n");
 	check_return(result1, result2);
 	/* Tests with % that give error in printf when compiled with the flags -Wall -Wextra -Werror*/
-	/*result1 = printf("%_this is_a test\n");
+	result1 = printf("%_this is_a test\n");
 	result2 = ft_printf("%_this is_a test\n");
 	check_return(result1, result2);
 	result1 = printf("bbbb%kanother test\n");
 	result2 = ft_printf("bbbb%kanother test\n");
-	check_return(result1, result2);*/
+	check_return(result1, result2);
 }
