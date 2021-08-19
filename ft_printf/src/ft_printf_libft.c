@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 06:10:28 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/17 19:40:11 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 01:44:23 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,11 @@ char	*ft_strchr(const char *s, int c)
 	if (*s == (char)c)
 			return ((char *)s);
 	return (NULL);
+}
+
+int		ft_toupper(int c)
+{
+	if (c > 96 && c < 123)
+		c = c - 32;
+	return (c);
 }

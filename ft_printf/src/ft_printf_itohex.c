@@ -6,22 +6,18 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 18:53:38 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 22:58:42 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 02:04:52 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static char	itohex_conversion(int n, char x)
+static char	itohex_conversion(int n)
 {
 	if (n < 10)
 		return (n + '0');
-	else if (x == LOWER_HEX)
-		return ((n - 10) + 'a');
-	else if (x == UPPER_HEX)
-		return ((n - 10) + 'A');
 	else
-		return (0);
+		return ((n - 10) + 'a');
 }
 
 void	printf_strtranslate(char *s, int idcopy)
@@ -38,12 +34,12 @@ void	printf_strtranslate(char *s, int idcopy)
 	s[i] = s[idcopy];
 }
 
-char	*printf_itohex(unsigned int n, char hconversion)
+char	*printf_itohex(unsigned long int n)
 {
 	char	*hexnb;
 	int		size;
 
-	size = printf_nbsize(n);
+	size = 12;
 	hexnb = NULL;
 	if (size > 0)
 		hexnb = (char *)malloc((size + 1) * sizeof(char));
@@ -54,12 +50,12 @@ char	*printf_itohex(unsigned int n, char hconversion)
 		hexnb[size] = '\0';
 		while (--size >= 0 && n >= 16)
 		{
-			hexnb[size] = itohex_conversion(n % 16, hconversion);
+			hexnb[size] = itohex_conversion(n % 16);
 			n = n / 16;
 			//printf("printf_itohex - n = %u\n", n);
 			//printf("\nprintf_itohex - size = %i\n", size);
 		}
-		hexnb[size] = itohex_conversion(n % 16, hconversion);
+		hexnb[size] = itohex_conversion(n % 16);
 		if (size > 0)
 			printf_strtranslate(hexnb, size);
 		//printf("printf_itohex - hexnb = %s\n", hexnb);

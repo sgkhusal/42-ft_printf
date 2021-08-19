@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/04 17:40:46 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 23:07:44 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 01:55:13 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,11 +228,35 @@ void	upperhex_test()
 	check_return(result1, result2);
 }
 
-/*void	p_test()
+void	p_test()
 {
-	int	result1;
-	int	result2;
-}*/
+	int		result1;
+	int		result2;
+	int		i = 42;
+	int		*p = &i;
+	int		**pp = &p;
+	char	c = 'a';
+	char	*pc = &c;
+	char	**ppc = &pc;
+	char	*str = "Hello World";
+	unsigned int	u = 17923818;
+
+	// printing pointer - specifier p
+	printf(LIGHT_RED("\n\nprinting pointer - specifier p:\n"));
+	printf(PINK("\nbasic tests:\n"));
+	result1 = printf(LIGHT_BLUE2("char pointer %%p = %p\n"), pc);
+	result2 = ft_printf(LIGHT_BLUE2("char pointer %%p = %p\n"), pc);
+	check_return(result1, result2);
+	result1 = printf(LIGHT_BLUE2("string pointer %%p = %p\n"), &str[0]);
+	result2 = ft_printf(LIGHT_BLUE2("string pointer %%p = %p\n"), &str[0]);
+	check_return(result1, result2);
+	result1 = printf(LIGHT_BLUE2("int pointer %%p = %p\n"), pp);
+	result2 = ft_printf(LIGHT_BLUE2("int pointer %%p = %p\n"), pp);
+	check_return(result1, result2);
+	result1 = printf(LIGHT_BLUE2("unsigned int pointer %%p = %p\n"), &u);
+	result2 = ft_printf(LIGHT_BLUE2("unsigned int pointer %%p = %p\n"), &u);
+	check_return(result1, result2);
+}
 
 int	main(void){
 	/* ************************* Printf ******************************** */
@@ -240,7 +264,7 @@ int	main(void){
 
 	printf(LIGHT_PURPLE("\nFT_PRINTF TESTER\n\n"));
 
-	text_tests();
+	/*text_tests();
 
 	printf(LIGHT_RED("Specifiers: c, s, d, i, u, p, and x\n"));
 
@@ -249,18 +273,12 @@ int	main(void){
 	c_test();
 	s_test();
 	di_test();
-	u_test();
+	u_test();*/
 	lowerhex_test();
 	upperhex_test();
-	//p_test();
+	p_test();
 
-	//int *ptr = &i;
-	// printing pointer - specifier p
-	/*printf(LIGHT_RED("\n\nprinting pointer - specifier p:\n"));
-	printf(LIGHT_BLUE2("char pointer %%p = %p\n"), &c);
-	printf(LIGHT_BLUE2("string pointer %%p = %p\n"), &str[0]);
-	printf(LIGHT_BLUE2("int pointer %%p = %p\n"), ptr);
-	printf(LIGHT_BLUE2("unsigned int pointer %%p = %p\n"), &j);*/
+	//
 
 	return (0);
 }
