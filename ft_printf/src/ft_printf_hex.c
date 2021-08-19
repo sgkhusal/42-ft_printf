@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:26 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 02:01:52 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 02:21:34 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,40 +52,22 @@ void	printf_hex(t_print *p, t_flags *f, unsigned int n)
 	}
 }
 
-void	printf_putptr(t_print *p, char *hex)
-{
-	int		size;
-	int		i;
-
-	printf_putstr_fd(p, "0x", 2);
-	size = (int)ft_strlen(hex);
-	if (size < 12)
-	{
-		i = 12 - size;
-		while (i > 0)
-		{
-			printf_putchar_fd(p, '0');
-			i--;
-			}
-		}
-	printf_putstr_fd(p, hex, size);
-}
-
 //void	printf_ptr(t_print *p, t_flags *f, unsigned long int n)
 void	printf_ptr(t_print *p, unsigned long int n)
 {
 	char	*hex;
 
 	if (n == 0)
-		printf_putstr_fd(p, "0x000000000000", 14);
+		printf_putstr_fd(p, "0x0", 3);
 	else
 	{
 		hex = printf_itohex(n);
 		if (hex)
 		{
-			printf("pointer = %s", hex);
-			printf_putptr(p, hex);
-			//free(hex);
+			//printf("pointer = %s", hex);
+			printf_putstr_fd(p, "0x", 2);
+			printf_putstr_fd(p, hex, (int)ft_strlen(hex));
+			free(hex);
 		}
 	}
 }
