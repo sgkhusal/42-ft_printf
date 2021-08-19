@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/03 22:46:27 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 01:11:45 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 19:11:33 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,12 @@ int	main(void){
 	printf(LIGHT_BLUE2("char %%c < 0: %c\n"), -1);
 	printf(LIGHT_BLUE2("char %%c > 256: %c\n"), 257);
 	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));
-	printf(LIGHT_BLUE2("%35s = |%c|\n"), "%%c", c);
-	printf(LIGHT_BLUE2("%35s = |%5c|\n"), "%%5c", c);
-	printf(LIGHT_BLUE2("%35s = |%-5c|\n"), "%%-5c", c);
-	printf(LIGHT_BLUE2("%35s = |%05c|\n"), "%%05c", c);
-	printf(LIGHT_BLUE2("%35s = |%-05c|\n"), "%%-05c", c);
-	printf(LIGHT_BLUE2("%35s = |%0-5c|\n"), "%%0-5c", c);
+	printf(LIGHT_BLUE2("%15s = |%c|\n"), "%%c", c);
+	printf(LIGHT_BLUE2("%15s = |%5c|\n"), "%%5c", c);
+	printf(LIGHT_BLUE2("%15s = |%-5c|\n"), "%%-5c", c);
+	printf(LIGHT_BLUE2("%15s = |%05c|\n"), "%%05c", c);
+	printf(LIGHT_BLUE2("%15s = |%-05c|\n"), "%%-05c", c);
+	printf(LIGHT_BLUE2("%15s = |%0-5c|\n"), "%%0-5c", c);
 
 	// printing string - specifier s
 	printf(LIGHT_RED("\n\nprinting string - specifier s:\n"));
@@ -88,19 +88,82 @@ int	main(void){
 	printf(LIGHT_BLUE2("number %%i = %i\n"), i);
 	printf(LIGHT_BLUE2("number %%i using pointer = %i\n"), *ptr);
 	printf(LIGHT_BLUE2("number %%i > maximum signed integer = %i\n"), 2147483648);
-	printf(LIGHT_BLUE2("number %%i < minimum signed integer = %i\n"), -2147483649);
+	printf(LIGHT_BLUE2("number %%i < minimum signed integer = %i\n"), -2147483649);*/
 	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));
-	printf(LIGHT_BLUE2("%35s = |%5i|\n"), "%%5i", i);
-	printf(LIGHT_BLUE2("%35s = |%-5i|\n"), "%%05i", i);
-	printf(LIGHT_BLUE2("%35s = |%05i|\n"), "%%05i", i);
-	printf(LIGHT_BLUE2("%35s = |%-05i|\n"), "%%-05i", i);
-	printf(LIGHT_BLUE2("%35s = |%5i|\n"), "%%5i", 1000000);
-	printf(LIGHT_BLUE2("%35s = |%05i|\n"), "%%05i", 1000000);
-	printf(LIGHT_BLUE2("%35s = |%-05i|\n"), "%%-05i", 1000000);
+	printf(LIGHT_BLUE2("%15s = |%5i|\n"), "%5i", i);
+	printf(LIGHT_BLUE2("%15s = |%5i|\n"), "%5i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%-5i|\n"), "%05i", i);
+	printf(LIGHT_BLUE2("%15s = |%-5i|\n"), "%05i", 42);
+	printf(LIGHT_BLUE2("%15s = |%05i|\n"), "%05i", i);
+	printf(LIGHT_BLUE2("%15s = |%05i|\n"), "%05i", 42);
+	printf(LIGHT_BLUE2("%15s = |%+5i|\n"), "%+5i", i);
+	printf(LIGHT_BLUE2("%15s = |%+5i|\n"), "%+5i", 42);
+	printf(LIGHT_BLUE2("%15s = |% 5i|\n"), "% 5i", i);
+	printf(LIGHT_BLUE2("%15s = |% 5i|\n"), "% 5i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%-05i|\n"), "%-05i", i);
+	printf(LIGHT_BLUE2("%15s = |%-05i|\n"), "%-05i", 42);
+	printf(LIGHT_BLUE2("%15s = |%0-5i|\n"), "%0-5i", i);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%5-0i|\n"), "%5-0i", i);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%+05i|\n"), "%+05i", i);
+	printf(LIGHT_BLUE2("%15s = |%+05i|\n"), "%+05i", 42);
+	printf(LIGHT_BLUE2("%15s = |%0+5i|\n"), "%0+5i", i);
+	printf(LIGHT_BLUE2("%15s = |%0+5i|\n"), "%0+5i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |% 05i|\n"), "% 05i", i);
+	printf(LIGHT_BLUE2("%15s = |% 05i|\n"), "% 05i", 42);
+	printf(LIGHT_BLUE2("%15s = |%0 5i|\n"), "%0 5i", i);
+	printf(LIGHT_BLUE2("%15s = |%0 5i|\n"), "%0 5i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%-+05i|\n"), "%-+05i", i);
+	printf(LIGHT_BLUE2("%15s = |%-+05i|\n"), "%-+05i", 42);
+	printf(LIGHT_BLUE2("%15s = |%+-05i|\n"), "%+-05i", i);
+	printf(LIGHT_BLUE2("%15s = |%+-05i|\n"), "%+-05i", 42);
+	printf(LIGHT_BLUE2("%15s = |%0+-5i|\n"), "%0+-5i", i);
+	printf(LIGHT_BLUE2("%15s = |%0+-5i|\n"), "%0+-5i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%- 05i|\n"), "%- 05i", i);
+	printf(LIGHT_BLUE2("%15s = |%- 05i|\n"), "%- 05i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%5.3i|\n"), "%5.3i", i);
+	printf(LIGHT_BLUE2("%15s = |%5.4i|\n"), "%5.4i", i);
+	printf(LIGHT_BLUE2("%15s = |%5.4i|\n"), "%5.4i", 42);
+	printf(LIGHT_BLUE2("%15s = |%+5.4i|\n"), "%+5.4i", 42);
+	printf(LIGHT_BLUE2("%15s = |% 5.4i|\n"), "% 5.4i", 42);
+	printf(LIGHT_BLUE2("%15s = |%-5.4i|\n"), "%-5.4i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%#5i|\n"), "%#5i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%+ 05i|\n"), "%+ 05i", i);
+	printf(LIGHT_BLUE2("%15s = |%+ 05i|\n"), "%+ 05i", 42);
+	printf(LIGHT_BLUE2("%15s = |% +05i|\n"), "% +05i", i);
+	printf(LIGHT_BLUE2("%15s = |% +05i|\n"), "% +05i", 42);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%05.3i|\n"), "%05.3i", i);
+	printf(LIGHT_BLUE2("%15s = |%05i|\n"), "%05i", i);
+	printf("-------------------------------------\n");
+	printf(LIGHT_BLUE2("%15s = |%05.i|\n"), "%05.i", i);
+	printf(LIGHT_BLUE2("%15s = |%05.i|\n"), "%05.i", 0);
+	printf(LIGHT_BLUE2("%15s = |%-5.3i|\n"), "%-5.3i", i);
+	printf(LIGHT_BLUE2("%15s = |%5.8i|\n"), "%5.8i", i);
+
+	/*printf(LIGHT_BLUE2("%15s = |%5i|\n"), "%5i", 1000000);
+	printf(LIGHT_BLUE2("%15s = |%-5i|\n"), "%05i", 1000000);
+	printf(LIGHT_BLUE2("%15s = |%05i|\n"), "%05i", 1000000);
+	printf(LIGHT_BLUE2("%15s = |%-05i|\n"), "%-05i", 1000000);*/
 
 	// printing unsigned integer - specifier u:
 	printf(LIGHT_RED("\n\nprinting unsigned integer - specifier u:\n"));
-	printf(LIGHT_BLUE2("number %%u = %u\n"), j);
+	printf(LIGHT_BLUE2("%15s = |%+5u|\n"), "%+5u", i);
+	printf(LIGHT_BLUE2("%15s = |%+5u|\n"), "%+5u", 42);
+	printf(LIGHT_BLUE2("%15s = |% 5u|\n"), "% 5u", i);
+	printf(LIGHT_BLUE2("%15s = |% 5u|\n"), "% 5u", 42);
+	printf(LIGHT_BLUE2("%15s = |%5.3u|\n"), "%5.3u", i);
+	printf(LIGHT_BLUE2("%15s = |%5.3u|\n"), "%5.3u", 42);
+	/*printf(LIGHT_BLUE2("number %%u = %u\n"), j);
 	printf(LIGHT_BLUE2("number %%u negative = %u\n"), i);
 	printf(LIGHT_BLUE2("number %%u < 0 = %u\n"), -1);
 	printf(LIGHT_BLUE2("number %%u > maximum unsigned integer = %u\n"), 4294967296);
@@ -111,7 +174,7 @@ int	main(void){
 	printf(LIGHT_BLUE2("width with flag   %%-010u = |%-010u|\n"), j);*/
 
 	// printing pointer - specifier p
-	printf(LIGHT_RED("\n\nprinting pointer - specifier p:\n"));
+	/*printf(LIGHT_RED("\n\nprinting pointer - specifier p:\n"));
 	printf(LIGHT_BLUE2("char pointer %%p = %p\n"), &c);
 	printf(LIGHT_BLUE2("string pointer %%p = %p\n"), &str[0]);
 	printf(LIGHT_BLUE2("int pointer %%p = %p\n"), ptr);
@@ -129,19 +192,20 @@ int	main(void){
 	printf(LIGHT_RED("\n\nprinting unsigned hex integer uppercase - specifier X:\n"));
 	printf(LIGHT_BLUE2("unsigned hex integer %%X = %X\n"), j);
 	printf(LIGHT_BLUE2("unsigned hex integer with negative number %%X = %X\n"), i);
-	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));
+	printf(PINK("\n------------------------------- Testing Flags ----------------------------\n\n"));*/
 
 
 	/* ************************ Bonus ****************************** */
 	//printf(LIGHT_PURPLE("\n************************ BONUS ******************************\n\n"));
 
 	// Flags:
-	// The flag '-' left-justifies within the given field width. Right justification is the default
-	// The flag 0 left-pads the number with zeroes instead of spaces, where padding is specified
 
 	// Width:
 	/* number - minimum number of charcters to be printed. If the value to be printed is shorter than this number,
 	the result is padded with blank spaces. The value is not truncated even if the result is larger */
+
+	// The flag '-' left-justifies within the given field width. Right justification is the default
+	// The flag 0 left-pads the number with zeroes instead of spaces, where padding is specified
 
 	// Precision
 	// .number

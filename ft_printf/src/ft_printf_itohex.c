@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 18:53:38 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 02:04:52 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 23:20:41 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	itohex_conversion(int n)
 		return ((n - 10) + 'a');
 }
 
-void	printf_strtranslate(char *s, int idcopy)
+static void	printf_strtranslate(char *s, int idcopy)
 {
 	int	i;
 
@@ -52,13 +52,10 @@ char	*printf_itohex(unsigned long int n)
 		{
 			hexnb[size] = itohex_conversion(n % 16);
 			n = n / 16;
-			//printf("printf_itohex - n = %u\n", n);
-			//printf("\nprintf_itohex - size = %i\n", size);
 		}
 		hexnb[size] = itohex_conversion(n % 16);
 		if (size > 0)
 			printf_strtranslate(hexnb, size);
-		//printf("printf_itohex - hexnb = %s\n", hexnb);
 		return (hexnb);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:22 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 05:27:51 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 21:03:44 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@ void	printf_putchar_fd(t_print *p, char c)
 {
 	write((*p).fd, &c, 1);
 	(*p).len++;
+}
+
+void	printf_putcharnb_fd(t_print *p, char c)
+{
+	if (c)
+	{
+		write((*p).fd, &c, 1);
+		(*p).len++;
+	}
 }
 
 void	printf_putstr_fd(t_print *p, const char *s, int size)
@@ -42,6 +51,13 @@ void	printf_s(t_print *p, t_flags *f, char *s)
 	int	len;
 
 	len = (int)ft_strlen(s);
+	/*if ((*f).point == YES)
+	{
+		if ((*f).precision) > len)
+		{
+
+		}
+	}*/
 	while((*f).width > len)
 	{
 		printf_putchar_fd(p, ' ');

@@ -6,11 +6,20 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:26 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 02:21:34 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 23:21:13 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+
+static void	ft_toupper_str(char *s)
+{
+	while (*s)
+	{
+		*s = ft_toupper(*s);
+		s++;
+	}
+}
 
 static void	printf_hash(t_print *p, t_flags *f)
 {
@@ -20,15 +29,6 @@ static void	printf_hash(t_print *p, t_flags *f)
 			printf_putstr_fd(p, "0x", 2);
 		else if ((*f).specifier == UPPX)
 			printf_putstr_fd(p, "0X", 2);
-	}
-}
-
-void	ft_toupper_str(char *s)
-{
-	while (*s)
-	{
-		*s = ft_toupper(*s);
-		s++;
 	}
 }
 
@@ -64,7 +64,6 @@ void	printf_ptr(t_print *p, unsigned long int n)
 		hex = printf_itohex(n);
 		if (hex)
 		{
-			//printf("pointer = %s", hex);
 			printf_putstr_fd(p, "0x", 2);
 			printf_putstr_fd(p, hex, (int)ft_strlen(hex));
 			free(hex);

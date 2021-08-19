@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 21:59:48 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 03:51:23 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 23:38:16 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 static int	printf_fd(int fd, const char *str, va_list args)
 {
-	t_print		p;
+	t_print	p;
+	int		j;
 
 	p.len = 0;
 	p.sub_len = 0;
 	p.i = 0;
-	p.j = 0;
+	j = 0;
 	p.fd = fd;
 	while (str[p.i])
 	{
 		p.sub_len++;
 		if(str[p.i] == '%')
 		{
-			printf_putstr_fd(&p, &str[p.j], p.sub_len - 1);
+			printf_putstr_fd(&p, &str[j], p.sub_len - 1);
 			printf_flags(&p, &str[++p.i], args);
-			p.j = p.i; // nova posicao que deve continuar a impressao
+			j = p.i;
 			p.sub_len = 0;
 		}
 		else
 			p.i++;
 	}
-	printf_putstr_fd(&p, &str[p.j], p.sub_len);
+	printf_putstr_fd(&p, &str[j], p.sub_len);
 	return (p.len);
 }
 

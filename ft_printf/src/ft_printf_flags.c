@@ -6,13 +6,13 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 06:31:16 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 23:18:21 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		ft_printf_atoi(t_print *p, const char *nptr, int *i)
+static int	ft_printf_atoi(t_print *p, const char *nptr, int *i)
 {
 	unsigned long long		n;
 
@@ -36,7 +36,6 @@ static void	check_numb_flags(t_flags *f, t_print *p, const char *s, int *i)
 		else
 			(*f).width = ft_printf_atoi(p, s, i);
 	}
-	//printf("\ncheck_numb_flags width = %i\n", (*f).width);
 }
 
 static void	put_flags(t_flags *f, const char c)
@@ -67,7 +66,6 @@ static void	check_flags(t_flags *f, t_print *p, const char *s, int *i)
 		j++;
 	}
 	check_numb_flags(f, p, &s[j], &j);
-	//printf("\ncheck_flags width = %i\n", (*f).width);
 	if (s[j] == PRECISION)
 	{
 		(*f).point = YES;
@@ -90,20 +88,15 @@ void	printf_flags(t_print *p, const char *s, va_list args)
 	f.space = NO;
 	f.point = NO;
 	f.hashtag = NO;
-	f.precision = 1;
-	f.width = NO;
-	/*if (check_specifier(&f, p, s[0]) == 1) // pode tirar o if e deixar so o else
+	f.precision = 0;
+	f.width = 0;
+	i = 0;
+	check_flags(&f, p, &s[i], &i);
+	if (check_specifier(&f, p, s[i]) == YES)
 		print_specifier(p, &f, args);
 	else
-	{*/
-		i = 0;
-		check_flags(&f, p, &s[i], &i);
-		if (check_specifier(&f, p, s[i]) == YES)
-			print_specifier(p, &f, args);
-		else
-		{
-			printf_putchar_fd(p, '%');
-			(*p).i = (*p).i - i;
-		}
-	/*}*/
+	{
+		printf_putchar_fd(p, '%');
+		(*p).i = (*p).i - i;
+	}
 }

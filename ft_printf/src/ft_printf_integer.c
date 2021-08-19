@@ -6,45 +6,58 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 21:16:39 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 23:19:34 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	printf_number_flags(t_print *p, t_flags *f)
+static char	printf_nbsign(t_flags *f, long int *n)
 {
-	if ((*f).plus == YES)
+	if ((*f).specifier == 'i' || (*f).specifier == 'd')
 	{
-		printf_putchar_fd(p, '+');
-		(*f).width--;
-	}
-	else if ((*f).space == YES)
-	{
-		printf_putchar_fd(p, ' ');
-		(*f).width--;
-	}
-}
+		if (*n < 0)
+		{
+			*n *= -1;
+			(*f).width--;
+			return ('-');
+		}
+		else if ((*f).plus == YES)
+		{
+			(*f).width--;
+			return ('+');
+		}
 
-void	printf_number_width(t_print *p, t_flags *f)
-{
-	if((*f).minus == NO)
-	{
-		if ((*f).zero == YES)
-			printf_putchar_fd(p, '0');
+		else if ((*f).space == YES)
+		{
+			(*f).width--;
+			return (' ');
+		}
 		else
-			printf_putchar_fd(p, ' ');
+			return (0);
 	}
 	else
-		printf_putchar_fd(p, ' ');
+		return (0);
 }
 
-void	printf_number(t_print *p, unsigned int n)
+static void	printf_pad(t_print *p, int var, int ref, char c)
+{
+	while (var > ref)
+	{
+		printf_putchar_fd(p, c);
+		var--;
+	}
+}
+
+static void	printf_number(t_print *p, t_flags *f, unsigned int n)
 {
 	char	*nchar;
 
 	if (n == 0)
-		printf_putchar_fd(p, '0');
+	{
+		if ((*f).point == 0 || (*f).precision != 0)
+			printf_putchar_fd(p, '0');
+	}
 	else
 	{
 		nchar = printf_itoa(n);
@@ -53,69 +66,55 @@ void	printf_number(t_print *p, unsigned int n)
 	}
 }
 
-void	printf_idnumber(t_print *p, t_flags *f, long int n)
+static void	printf_rjust(t_print *p, t_flags *f, long int n, char sign)
 {
-	if (n < 0)
-	{
-		printf_putchar_fd(p, '-');
-		n *= -1;
-	}
-	else
-		printf_number_flags(p, f);
-	printf_number(p, n);
-}
+	int		size;
 
-void	printf_id(t_print *p, t_flags *f, long int n)
-{
-	int	size;
-
-	size = printf_nbsize(n) + printf_nbflags_size(n, f);
-	//printf("\nwidth = %i\n", (*f).width);
-	if ((*f).minus == YES)
+	size = printf_nbsize(n);
+	if ((*f).point == NO)
 	{
-		printf_idnumber(p, f, n);
-		(*f).width -= size;
-		while ((*f).width > 0)
+		if ((*f).zero == YES)
 		{
-			printf_number_width(p, f);
-			(*f).width--;
+			printf_putcharnb_fd(p, sign);
+			printf_pad(p, (*f).width, size, '0');
 		}
+		else
+		{
+			printf_pad(p, (*f).width, size, ' ');
+			printf_putcharnb_fd(p, sign);
+		}
+		printf_number(p, f, n);
 	}
 	else
 	{
-		while ((*f).width > size)
-		{
-			printf_number_width(p, f);
-			(*f).width--;
-		}
-		printf_idnumber(p, f, n);
+		if ((*f).width > size)
+			printf_pad(p, (*f).width, (*f).precision, ' ');
+		printf_putcharnb_fd(p, sign);
+		printf_pad(p, (*f).precision, size, '0');
+		printf_number(p, f, n);
 	}
 }
 
-void	printf_u(t_print *p, t_flags *f, unsigned int n)
+void	printf_idu(t_print *p, t_flags *f, long int n)
 {
-	int	size;
+	char	sign;
+	int		size;
 
-	size = printf_nbsize(n) + printf_nbflags_size(n, f);
+	sign = printf_nbsign(f, &n);
+	size = printf_nbsize(n);
 	if ((*f).minus == YES)
 	{
-		printf_number_flags(p, f);
-		printf_number(p, n);
-		(*f).width -= size;
-		while ((*f).width > 0)
+		printf_putcharnb_fd(p, sign);
+		while ((*f).precision > size)
 		{
-			printf_number_width(p, f);
+			printf_putchar_fd(p, '0');
+			(*f).precision--;
 			(*f).width--;
 		}
+		printf_number(p, f, n);
+		(*f).width -= size;
+		printf_pad(p, (*f).width, 0, ' ');
 	}
 	else
-	{
-		while ((*f).width > size)
-		{
-			printf_number_width(p, f);
-			(*f).width--;
-		}
-		printf_number_flags(p, f);
-		printf_number(p, n);
-	}
+		printf_rjust(p, f, n, sign);
 }

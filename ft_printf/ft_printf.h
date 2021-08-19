@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 01:59:31 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/19 23:34:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,27 +44,34 @@ typedef struct		s_flags
 typedef struct		s_print
 {
 	int				i;
-	int				j;
 	int				len;
 	int				sub_len;
 	int				fd;
 }					t_print;
 
-int	ft_printf(const char *str, ...);
-int	ft_printf_fd(int fd, const char *str, ...);
-void	printf_flags(t_print *p, const char *str, va_list args);
+/*
+ft_printf functions
+*/
 
-int	check_specifier(t_flags *f, t_print *p, const char c);
+int		ft_printf(const char *str, ...);
+int		ft_printf_fd(int fd, const char *str, ...);
+void	printf_flags(t_print *p, const char *str, va_list args);
+int		check_specifier(t_flags *f, t_print *p, const char c);
 void	print_specifier(t_print *p, t_flags *f, va_list args);
-void	printf_putstr_fd(t_print *p, const char *s, int size);
-void	printf_putchar_fd(t_print *p, char c);
 void	printf_c(t_print *p, t_flags *f, char c);
 void	printf_s(t_print *p, t_flags *f, char *str);
-void	printf_id(t_print *p, t_flags *f, long int n);
-void	printf_u(t_print *p, t_flags *f, unsigned int n);
+void	printf_idu(t_print *p, t_flags *f, long int n);
 //void	printf_ptr(t_print *p, t_flags *f, unsigned long int n);
 void	printf_ptr(t_print *p, unsigned long int n);
 void	printf_hex(t_print *p, t_flags *f, unsigned int n);
+
+void	printf_putstr_fd(t_print *p, const char *s, int size);
+void	printf_putchar_fd(t_print *p, char c);
+void	printf_putcharnb_fd(t_print *p, char c);
+
+int		printf_nbsize(unsigned int n);
+char	*printf_itoa(unsigned int n);
+char	*printf_itohex(unsigned long int n);
 
 /*
 libft
@@ -74,11 +81,5 @@ char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
 int		ft_isdigit(int c);
 int		ft_toupper(int c);
-
-
-char	*printf_itoa(unsigned int n);
-int	printf_nbsize(unsigned int n);
-int	printf_nbflags_size(long int n, t_flags *f);
-char	*printf_itohex(unsigned long int n);
 
 #endif
