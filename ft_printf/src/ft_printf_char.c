@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:22 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 21:03:44 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 05:35:01 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,20 @@ void	printf_c(t_print *p, t_flags *f, char c)
 
 void	printf_s(t_print *p, t_flags *f, char *s)
 {
-	int	len;
+	int	size;
 
-	len = (int)ft_strlen(s);
-	/*if ((*f).point == YES)
+	size = (int)ft_strlen(s);
+	if ((*f).point == YES && (*f).precision < size)
+		size = (*f).precision;
+	if ((*f).minus == YES)
 	{
-		if ((*f).precision) > len)
-		{
-
-		}
-	}*/
-	while((*f).width > len)
-	{
-		printf_putchar_fd(p, ' ');
-		(*f).width--;
+		printf_putstr_fd(p, s, size);
+		(*f).width -= size;
+		printf_pad(p, (*f).width, 0, ' ');
 	}
-	write((*p).fd, s, len);
-	(*p).len += len;
+	else
+	{
+		printf_pad(p, (*f).width, size, ' ');
+		printf_putstr_fd(p, s, size);
+	}
 }

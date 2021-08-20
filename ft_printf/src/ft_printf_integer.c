@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 23:19:34 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 05:29:05 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static char	printf_nbsign(t_flags *f, long int *n)
 		return (0);
 }
 
-static void	printf_pad(t_print *p, int var, int ref, char c)
+void	printf_pad(t_print *p, int var, int ref, char c)
 {
 	while (var > ref)
 	{

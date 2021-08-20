@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 23:34:27 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 05:25:43 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	printf_hex(t_print *p, t_flags *f, unsigned int n);
 void	printf_putstr_fd(t_print *p, const char *s, int size);
 void	printf_putchar_fd(t_print *p, char c);
 void	printf_putcharnb_fd(t_print *p, char c);
+void	printf_pad(t_print *p, int var, int ref, char c);
 
 int		printf_nbsize(unsigned int n);
 char	*printf_itoa(unsigned int n);
