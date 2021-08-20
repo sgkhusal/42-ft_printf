@@ -6,35 +6,31 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:01:10 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/18 21:50:27 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/20 19:40:52 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # creates libftprintf.a library
 
 NAME =			libftprintf.a
-#BONUS =			libftprintf.a ############### verificar se recebe o mesmo nome
 
-# sources
-SRC_PATH =			./src
-OBJ_PATH =			./obj
-BONUS_SRC_PATH =	./bonus/
-SRC =				$(SRC_PATH)/ft_printf.c \
-					$(SRC_PATH)/ft_printf_flags.c \
-					$(SRC_PATH)/ft_printf_specifiers.c \
-					$(SRC_PATH)/ft_printf_libft.c \
-					$(SRC_PATH)/ft_printf_char.c \
-					$(SRC_PATH)/ft_printf_integer.c \
-					$(SRC_PATH)/ft_printf_itoa.c \
-					$(SRC_PATH)/ft_printf_hex.c  \
-					$(SRC_PATH)/ft_printf_itohex.c \
-					#colocar os nomes dos arquivos
-#BONUS_FILES =	ft_printf_bonus.c $(BONUS_SRC_PATH)$(wildcard *.c) #colocar os nomes dos arquivos
+SRC_PATH =		./src
+OBJ_PATH =		./obj
+SRC =			$(SRC_PATH)/ft_printf.c \
+				$(SRC_PATH)/ft_printf_flags.c \
+				$(SRC_PATH)/ft_printf_specifiers.c \
+				$(SRC_PATH)/ft_printf_libft.c \
+				$(SRC_PATH)/ft_printf_utils.c \
+				$(SRC_PATH)/ft_printf_char.c \
+				$(SRC_PATH)/ft_printf_integer.c \
+				$(SRC_PATH)/ft_printf_itoa.c \
+				$(SRC_PATH)/ft_printf_hex.c  \
+				$(SRC_PATH)/ft_printf_itohex.c \
+				$(SRC_PATH)/ft_printf_pointer.c
 OBJ =			$(patsubst $(SRC_PATH)/%.c, $(OBJ_PATH)/%.o, $(SRC))
-#BONUS_OBJ =	$(BONUS_FILES:.c=.o)
 
 # compilation
-CC =		clang # ou usa o gcc?
+CC =		clang
 CFLAGS = 	-Wall -Werror -Wextra
 
 # clean
@@ -42,37 +38,16 @@ RM =		-rm -f
 RM_DIR =	rm -rf
 
 # rules
-
 all:	$(NAME)
 
-#@mkdir $(OBJ_PATH)
-
-
-message:
-		@echo $(SRC)
-		@echo $(OBJ)
-
-#bonus:	$(BONUS)
-
-b:	$(OBJ)
+bonus:	$(NAME)
 
 $(OBJ_PATH)/%.o:	$(SRC_PATH)/%.c
 	@mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-#$(OBJ):	$(SRC)
-#		$(CC) $(CFLAGS) -c $< -o $@
-
-#$(BONUS_OBJ):	$(BONUS_FILES)
-#			$(CC) $(CFLAGS) -c $< -o $@
-
 $(NAME):	$(OBJ)
 		ar rc $@ $(OBJ)
-		ranlib $@
-
-$(BONUS):	$(BONUS_OBJS)  ### sera que e bom colocar um fclean (acho que nao, por seria um relink?)
-		# ar rc $@ $(BONUS_OBJS)
-		ar rc $@ $<
 		ranlib $@
 
 clean:

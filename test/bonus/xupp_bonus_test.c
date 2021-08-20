@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:31 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 06:41:30 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:43:28 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,17 @@ void	xupp_bonus_test()
 	result1 = printf(LIGHT_BLUE2("%%#10.5X = |%#10.5X|\n"), 42427);
 	result2 = ft_printf(LIGHT_BLUE2("%%#10.5X = |%#10.5X|\n"), 42427);
 	check_return(result1, result2);
+	result1 = printf("%%#.5X = |%#.5X|\n", 42427);
+	result2 = ft_printf("%%#.5X = |%#.5X|\n", 42427);
+	check_return(result1, result2);
 
 	printf("---------------\n");
 	printf(PINK("test 6: invalids flags\n"));
 	result1 = printf(LIGHT_BLUE2("%%+10X = |%+10X|\n"), 42427);
 	result2 = ft_printf(LIGHT_BLUE2("%%+10X = |%+10X|\n"), 42427);
 	check_return(result1, result2);
-	result1 = printf(LIGHT_BLUE2("%% 10X = |% 10X|\n"), 42427);
-	result2 = ft_printf(LIGHT_BLUE2("%% 10X = |% 10X|\n"), 42427);
+	result1 = printf(LIGHT_BLUE2("%%- 10X = |%- 10X|\n"), 42427);
+	result2 = ft_printf(LIGHT_BLUE2("%%- 10X = |%- 10X|\n"), 42427);
 	check_return(result1, result2);
 
 	printf("---------------\n");

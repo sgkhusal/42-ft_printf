@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:16 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 06:27:58 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:08:35 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,17 @@ void	xlow_bonus_test()
 	result1 = printf(LIGHT_BLUE2("%%#10.5x = |%#10.5x|\n"), 42427);
 	result2 = ft_printf(LIGHT_BLUE2("%%#10.5x = |%#10.5x|\n"), 42427);
 	check_return(result1, result2);
+	result1 = printf("%%#.5x = |%#.5x|\n", 42427);
+	result2 = ft_printf("%%#.5x = |%#.5x|\n", 42427);
+	check_return(result1, result2);
 
 	printf("---------------\n");
 	printf(PINK("test 6: invalids flags\n"));
 	result1 = printf(LIGHT_BLUE2("%%+10x = |%+10x|\n"), 42427);
 	result2 = ft_printf(LIGHT_BLUE2("%%+10x = |%+10x|\n"), 42427);
 	check_return(result1, result2);
-	result1 = printf(LIGHT_BLUE2("%% 10x = |% 10x|\n"), 42427);
-	result2 = ft_printf(LIGHT_BLUE2("%% 10x = |% 10x|\n"), 42427);
+	result1 = printf(LIGHT_BLUE2("%%- 10x = |%- 10x|\n"), 42427);
+	result2 = ft_printf(LIGHT_BLUE2("%%- 10x = |%- 10x|\n"), 42427);
 	check_return(result1, result2);
 
 	printf("---------------\n");

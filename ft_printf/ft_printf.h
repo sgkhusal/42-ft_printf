@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 05:25:43 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:30:09 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,21 @@ void	printf_s(t_print *p, t_flags *f, char *str);
 void	printf_idu(t_print *p, t_flags *f, long int n);
 //void	printf_ptr(t_print *p, t_flags *f, unsigned long int n);
 void	printf_ptr(t_print *p, unsigned long int n);
-void	printf_hex(t_print *p, t_flags *f, unsigned int n);
+void	printf_x(t_print *p, t_flags *f, unsigned int n);
 
 void	printf_putstr_fd(t_print *p, const char *s, int size);
 void	printf_putchar_fd(t_print *p, char c);
 void	printf_putcharnb_fd(t_print *p, char c);
 void	printf_pad(t_print *p, int var, int ref, char c);
+void	printf_pad2(t_print *p, t_flags *f, int ref, char c);
+void	printf_zero(t_print *p, t_flags *f);
 
-int		printf_nbsize(unsigned int n);
 char	*printf_itoa(unsigned int n);
+int		printf_nbsize(unsigned int n);
+int		ft_highnb(int n1, int n2);
+
 char	*printf_itohex(unsigned long int n);
+void	ft_toupper_str(char *s);
 
 /*
 libft

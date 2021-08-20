@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 08:01:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 20:58:43 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 17:09:07 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ void	print_specifier(t_print *p, t_flags *f, va_list args)
 		printf_ptr(p, va_arg(args, unsigned long int));
 		//printf_ptr(p, f, va_arg(args, unsigned long int));
 	else if (((*f).specifier == LOWX) || ((*f).specifier == UPPX))
-		printf_hex(p, f, va_arg(args, unsigned int));
+		printf_x(p, f, va_arg(args, unsigned int));
 }
