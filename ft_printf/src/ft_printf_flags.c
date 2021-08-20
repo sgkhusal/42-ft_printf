@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 23:18:21 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 20:21:30 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static int	ft_printf_atoi(t_print *p, const char *nptr, int *i)
 
 static void	check_numb_flags(t_flags *f, t_print *p, const char *s, int *i)
 {
-	if (ft_isdigit(s[0]))
+	if (ft_isdigit(s[1]))
 	{
-		if ((*f).point == 1)
-			(*f).precision = ft_printf_atoi(p, s, i);
+		if (s[0] == '.')
+			(*f).precision = ft_printf_atoi(p, &s[1], i);
 		else
-			(*f).width = ft_printf_atoi(p, s, i);
+			(*f).width = ft_printf_atoi(p, &s[1], i);
 	}
 }
 
@@ -65,14 +65,21 @@ static void	check_flags(t_flags *f, t_print *p, const char *s, int *i)
 		(*p).i++;
 		j++;
 	}
+	check_numb_flags(f, p, &s[j - 1], &j);
+	while (ft_strchr(FLAGS, s[j]))
+	{
+		put_flags(f, s[j]);
+		(*p).i++;
+		j++;
+	}
 	check_numb_flags(f, p, &s[j], &j);
-	if (s[j] == PRECISION)
+	/*if (s[j] == PRECISION)
 	{
 		(*f).point = YES;
 		(*p).i++;
 		j++;
 		check_numb_flags(f, p, &s[j], &j);
-	}
+	}*/
 	(*i) = (*i) + j;
 }
 
