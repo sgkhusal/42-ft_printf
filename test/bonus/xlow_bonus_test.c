@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:16 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 00:08:27 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 01:31:40 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,11 @@ void	xlow_bonus_test()
 	result1 = printf("%%#.5x = |%#.5x|\n", 42427);
 	result2 = ft_printf("%%#.5x = |%#.5x|\n", 42427);
 	check_return(result1, result2);
+	printf("---------------\n");
+	printf(PINK("Precision = 0\n"));
+	result1 = printf("%%#5.x = |%#5.x|\n", 42427);
+	result2 = ft_printf("%%#5.x = |%#5.x|\n", 42427);
+	check_return(result1, result2);
 
 	printf("---------------\n");
 	printf(PINK("test 6: invalids flags\n"));
@@ -134,4 +139,5 @@ void	xlow_bonus_test()
 	result1 = printf("%%.05x = |%.05x|\n", 0);
 	result2 = ft_printf("%%.05x = |%.05x|\n", 0);
 	check_return(result1, result2);
+
 }
