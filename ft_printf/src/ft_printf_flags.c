@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 20:21:30 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 20:30:21 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,12 +98,17 @@ void	printf_flags(t_print *p, const char *s, va_list args)
 	f.precision = 0;
 	f.width = 0;
 	i = 0;
-	check_flags(&f, p, &s[i], &i);
-	if (check_specifier(&f, p, s[i]) == YES)
-		print_specifier(p, &f, args);
+	if (&s[i] == '%')
+		printf_putchar_fd(p, '%');
 	else
 	{
-		printf_putchar_fd(p, '%');
-		(*p).i = (*p).i - i;
+		check_flags(&f, p, &s[i], &i);
+		if (check_specifier(&f, p, s[i]) == YES)
+			print_specifier(p, &f, args);
+		else
+		{
+			printf_putchar_fd(p, '%');
+			(*p).i = (*p).i - i;
+		}
 	}
 }

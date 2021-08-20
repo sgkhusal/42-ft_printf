@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 20:17:53 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 20:30:30 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <stdio.h> ///////////////////////////////
 
 # define STDOUT	1
-# define CONVERSIONS "%cspdiuxX"
+# define CONVERSIONS "cspdiuxX"
 # define FLAGS "-0+ #."
 # define PRECISION '.'
 # define NO 0
