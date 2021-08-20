@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:16:12 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 18:49:40 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 01:21:05 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,18 +171,23 @@ void	i_bonus_test()
 	result2 = ft_printf("%10s = |%05i|\n", "%05i", -42);
 	check_return(result1, result2);
 	printf("--------------------------------\n");
+	result1 = printf("%10s = |%-5.3i|\n", "%-5.3i", -42);
+	result2 = ft_printf("%10s = |%-5.3i|\n", "%-5.3i", -42);
+	check_return(result1, result2);
+	printf("--------------------------------\n");
+	result1 = printf("%10s = |%5.8i|\n", "%5.8i", -42);
+	result2 = ft_printf("%10s = |%5.8i|\n", "%5.8i", -42);
+	check_return(result1, result2);
+	printf("--------------------------------\n");
+
+	printf(LIGHT_BLUE2("test 5: presision = 0 and negative number\n"));
 	result1 = printf("%10s = |%05.-i|\n", "%05.-i", -42);
 	result2 = ft_printf("%10s = |%05.-i|\n", "%05.-i", -42);
 	check_return(result1, result2);
 	result1 = printf("%10s = |%05. i|\n", "%05. i", -42);
 	result2 = ft_printf("%10s = |%05. i|\n", "%05. i", -42);
 	check_return(result1, result2);
-	result1 = printf("%10s = |%-5.3i|\n", "%-5.3i", -42);
-	result2 = ft_printf("%10s = |%-5.3i|\n", "%-5.3i", -42);
-	check_return(result1, result2);
-	result1 = printf("%10s = |%5.8i|\n", "%5.8i", -42);
-	result2 = ft_printf("%10s = |%5.8i|\n", "%5.8i", -42);
-	check_return(result1, result2);
+
 
 	printf("--------------------------------\n");
 	printf(LIGHT_BLUE2("test 6: number = 0\n"));
