@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 20:30:30 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 00:21:31 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	printf_pad(t_print *p, int var, int ref, char c);
 void	printf_pad2(t_print *p, t_flags *f, int ref, char c);
 void	printf_zero(t_print *p, t_flags *f);
 
+int		ft_printf_atoi(t_print *p, const char *nptr, int *i);
 char	*printf_itoa(unsigned int n);
 int		printf_nbsize(unsigned int n);
 int		ft_highnb(int n1, int n2);

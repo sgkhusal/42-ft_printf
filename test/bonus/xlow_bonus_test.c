@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:16 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 19:08:35 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 00:08:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void	xlow_bonus_test()
 	check_return(result1, result2);
 
 	printf("---------------\n");
-	printf(PINK("\ntest 8: flags variations invalids\n"));
+	printf(PINK("\ntest 8:\n"));
 	result1 = printf("%%.#5x = |%.#5x|\n", 0);
 	result2 = ft_printf("%%.#5x = |%.#5x|\n", 0);
 	check_return(result1, result2);

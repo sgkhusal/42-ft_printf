@@ -1,31 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_flags.c                                  :+:      :+:    :+:   */
+/*   2_ft_printf_flags.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 23:56:59 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 00:28:21 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
-
-static int	ft_printf_atoi(t_print *p, const char *nptr, int *i)
-{
-	unsigned long long		n;
-
-	n = 0;
-	while (ft_isdigit(*nptr))
-	{
-		n = n * 10 + (*nptr - 48);
-		nptr++;
-		(*p).i++;
-		(*i)++;
-	}
-	return (n);
-}
 
 static void	check_numb_flags(t_flags *f, t_print *p, const char *s, int *i)
 {
@@ -64,22 +49,10 @@ static void	check_flags(t_flags *f, t_print *p, const char *s, int *i)
 		put_flags(f, s[j]);
 		(*p).i++;
 		j++;
+		if (s[j - 1] == '.')
+			check_numb_flags(f, p, &s[j - 1], &j);
 	}
 	check_numb_flags(f, p, &s[j - 1], &j);
-	while (ft_strchr(FLAGS, s[j]))
-	{
-		put_flags(f, s[j]);
-		(*p).i++;
-		j++;
-	}
-	check_numb_flags(f, p, &s[j -1], &j);
-	/*if (s[j] == PRECISION)
-	{
-		(*f).point = YES;
-		(*p).i++;
-		j++;
-		check_numb_flags(f, p, &s[j], &j);
-	}*/
 	(*i) = (*i) + j;
 }
 
@@ -106,12 +79,8 @@ void	printf_flags(t_print *p, const char *s, va_list args)
 		f.width = 0;
 		i = 0;
 		check_flags(&f, p, &s[i], &i);
+		check_flags(&f, p, &s[i], &i);
 		if (check_specifier(&f, p, s[i]) == YES)
 			print_specifier(p, &f, args);
-		/*else
-		{
-			//printf_putchar_fd(p, '%');
-			(*p).i = (*p).i - i;
-		}*/
 	}
 }
