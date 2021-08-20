@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 20:30:21 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 20:38:38 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,27 +88,30 @@ void	printf_flags(t_print *p, const char *s, va_list args)
 	t_flags	f;
 	int		i;
 
-	f.specifier = NO;
-	f.minus = NO;
-	f.zero = NO;
-	f.plus = NO;
-	f.space = NO;
-	f.point = NO;
-	f.hashtag = NO;
-	f.precision = 0;
-	f.width = 0;
-	i = 0;
-	if (&s[i] == '%')
+	if (s[0] == '%')
+	{
 		printf_putchar_fd(p, '%');
+		(*p).i++;
+	}
 	else
 	{
+		f.specifier = NO;
+		f.minus = NO;
+		f.zero = NO;
+		f.plus = NO;
+		f.space = NO;
+		f.point = NO;
+		f.hashtag = NO;
+		f.precision = 0;
+		f.width = 0;
+		i = 0;
 		check_flags(&f, p, &s[i], &i);
 		if (check_specifier(&f, p, s[i]) == YES)
 			print_specifier(p, &f, args);
-		else
+		/*else
 		{
-			printf_putchar_fd(p, '%');
+			//printf_putchar_fd(p, '%');
 			(*p).i = (*p).i - i;
-		}
+		}*/
 	}
 }
