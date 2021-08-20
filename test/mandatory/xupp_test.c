@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:38:19 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 04:43:10 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 06:21:22 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,9 @@ void	upperhex_test()
 	printf("--------------------\n");
 	result2 = ft_printf(LIGHT_BLUE2("element 1: |%X|\nelement 2: |%X|\nelement 3: |%X|\nelement 4: |%X|\n"), i, 5456211, 0, 0056);
 	check_return(result1, result2);
+
+	printf("---------------\n");
+	printf(PINK("\nprinting 0\n"));
+	result1 = printf("%%X = |%X|\n", 0);
+	result2 = ft_printf("%%X = |%X|\n", 0);
 }

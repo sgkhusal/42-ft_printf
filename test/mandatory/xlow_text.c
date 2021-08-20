@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:38:15 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 04:42:47 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 06:21:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,9 @@ void	lowerhex_test()
 	printf("--------------------\n");
 	result2 = ft_printf(LIGHT_BLUE2("element 1: |%x|\nelement 2: |%x|\nelement 3: |%x|\nelement 4: |%x|\n"), i, 5456211, 0, 0056);
 	check_return(result1, result2);
+
+	printf("---------------\n");
+	printf(PINK("\nprinting 0\n"));
+	result1 = printf("%%x = |%x|\n", 0);
+	result2 = ft_printf("%%x = |%x|\n", 0);
 }
