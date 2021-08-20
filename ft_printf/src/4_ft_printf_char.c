@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_char.c                                   :+:      :+:    :+:   */
+/*   4_ft_printf_char.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:22 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 19:51:15 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 00:44:03 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,11 @@ void	printf_c(t_print *p, t_flags *f, char c)
 {
 	if ((*f).minus == YES)
 		printf_putchar_fd(p, c);
-	while ((*f).width > 1)
-	{
-		printf_putchar_fd(p, ' ');
-		(*f).width--;
-	}
-	if ((*f).minus == 0)
+	if ((*f).minus == NO && (*f).zero == YES)
+		printf_pad(p, (*f).width, 1, '0');
+	else
+		printf_pad(p, (*f).width, 1, ' ');
+	if ((*f).minus == NO)
 		printf_putchar_fd(p, c);
 }
 
@@ -61,7 +60,10 @@ void	printf_s(t_print *p, t_flags *f, char *s)
 	}
 	else
 	{
-		printf_pad(p, (*f).width, size, ' ');
+		if ((*f).zero == YES)
+			printf_pad(p, (*f).width, size, '0');
+		else
+			printf_pad(p, (*f).width, size, ' ');
 		printf_putstr_fd(p, s, size);
 	}
 }
