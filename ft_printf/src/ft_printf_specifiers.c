@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 08:01:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 17:09:07 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:53:49 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_specifier(t_print *p, t_flags *f, va_list args)
 		printf_s(p, f, va_arg(args, char *));
 	else if ((*f).specifier == 'd')
 		printf_idu(p, f, va_arg(args, int));
-	else if ((*f).specifier ==  'i')
+	else if ((*f).specifier == 'i')
 		printf_idu(p, f, va_arg(args, int));
 	else if ((*f).specifier == 'u')
 		printf_idu(p, f, va_arg(args, unsigned int));

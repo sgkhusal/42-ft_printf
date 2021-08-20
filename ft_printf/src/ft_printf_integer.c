@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 19:13:37 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:52:04 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static char	printf_nbsign(t_flags *f, long int *n)
 			(*f).width--;
 			return ('+');
 		}
-
 		else if ((*f).space == YES)
 		{
 			(*f).width--;
@@ -49,7 +48,7 @@ static void	printf_number(t_print *p, t_flags *f, unsigned int n)
 	else
 	{
 		nchar = printf_itoa(n);
-		printf_putstr_fd(p, nchar, ft_strlen(nchar));// pode ser substituido pelo nbsize
+		printf_putstr_fd(p, nchar, ft_strlen(nchar));
 		free(nchar);
 	}
 }

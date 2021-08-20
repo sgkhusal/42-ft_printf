@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 21:59:48 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 23:38:16 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:53:13 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	printf_fd(int fd, const char *str, va_list args)
 	while (str[p.i])
 	{
 		p.sub_len++;
-		if(str[p.i] == '%')
+		if (str[p.i] == '%')
 		{
 			printf_putstr_fd(&p, &str[j], p.sub_len - 1);
 			printf_flags(&p, &str[++p.i], args);

@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 19:30:09 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 19:50:21 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,26 @@
 # define LOWX 'x'
 # define UPPX 'X'
 
-typedef struct		s_flags
+typedef struct s_flags
 {
-	char			specifier;
-	int				minus;
-	int				zero;
-	int				plus;
-	int				space;
-	int				hashtag;
-	int				point;
-	int				width;
-	int				precision;
-}					t_flags;
+	char		specifier;
+	int			minus;
+	int			zero;
+	int			plus;
+	int			space;
+	int			hashtag;
+	int			point;
+	int			width;
+	int			precision;
+}				t_flags;
 
-typedef struct		s_print
+typedef struct s_print
 {
-	int				i;
-	int				len;
-	int				sub_len;
-	int				fd;
-}					t_print;
+	int			i;
+	int			len;
+	int			sub_len;
+	int			fd;
+}				t_print;
 
 /*
 ft_printf functions
