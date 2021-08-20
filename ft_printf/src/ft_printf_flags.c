@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 03:59:42 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 20:38:38 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 23:56:59 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static void	check_flags(t_flags *f, t_print *p, const char *s, int *i)
 		(*p).i++;
 		j++;
 	}
-	check_numb_flags(f, p, &s[j], &j);
+	check_numb_flags(f, p, &s[j -1], &j);
 	/*if (s[j] == PRECISION)
 	{
 		(*f).point = YES;
