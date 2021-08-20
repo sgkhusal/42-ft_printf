@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:17:43 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 04:30:00 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 06:31:36 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,12 @@ void	d_bonus_test()
 	check_return(result1, result2);
 	result1 = printf("%10s = |%-5d|\n", "%-5d", 0);
 	result2 = ft_printf("%10s = |%-5d|\n", "%-5d", 0);
+	check_return(result1, result2);
+	result1 = printf("%10s = |%.3d|\n", "%.3d", 0);
+	result2 = ft_printf("%10s = |%.3d|\n", "%.3d", 0);
+	check_return(result1, result2);
+	result1 = printf("%10s = |%.d|\n", "%.d", 0);
+	result2 = ft_printf("%10s = |%.d|\n", "%.d", 0);
 	check_return(result1, result2);
 	result1 = printf("%10s = |%-5.3d|\n", "%-5.3d", 0);
 	result2 = ft_printf("%10s = |%-5.3d|\n", "%-5.3d", 0);
