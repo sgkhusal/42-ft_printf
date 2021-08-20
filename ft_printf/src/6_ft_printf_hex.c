@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_hex.c                                    :+:      :+:    :+:   */
+/*   6_ft_printf_hex.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:26 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 19:39:24 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 01:39:55 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ static void	printf_hex(t_print *p, t_flags *f, char *hex)
 
 int	printf_print_size(t_flags *f, int size, char c)
 {
+
+	if ((*f).point == YES && c == '0')
+		return (0);
 	if ((*f).precision > size)
 	{
 		if ((*f).hashtag == YES && c != '0')
@@ -96,6 +99,8 @@ void	printf_x(t_print *p, t_flags *f, unsigned int n)
 			printf_hash(p, f, hex[0]);
 			printf_pad2(p, f, size, '0');
 			printf_hex(p, f, hex);
+			if ((*f).point == YES && n == 0)
+				size = 0;
 			printf_pad(p, (*f).width, size, ' ');
 		}
 		else

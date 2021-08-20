@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:16 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 01:31:40 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 01:35:15 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,12 +130,14 @@ void	xlow_bonus_test()
 
 	printf("---------------\n");
 	printf(PINK("\ntest 8:\n"));
+	printf(LIGHT_BLUE2("\nprecision = 0 and number = 0\n"));
 	result1 = printf("%%.#5x = |%.#5x|\n", 0);
 	result2 = ft_printf("%%.#5x = |%.#5x|\n", 0);
 	check_return(result1, result2);
 	result1 = printf("%%.-5x = |%.-5x|\n", 0);
 	result2 = ft_printf("%%.-5x = |%.-5x|\n", 0);
 	check_return(result1, result2);
+	printf("---------------\n");
 	result1 = printf("%%.05x = |%.05x|\n", 0);
 	result2 = ft_printf("%%.05x = |%.05x|\n", 0);
 	check_return(result1, result2);
