@@ -6,11 +6,11 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:30:39 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 23:20:04 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 04:10:06 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include "../utils/test.h"
 
 void	percentage_test()
 {

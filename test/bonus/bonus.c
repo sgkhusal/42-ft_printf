@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/12 04:52:47 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 04:07:16 by sguilher         ###   ########.fr       */
+/*   Created: 2021/08/16 01:09:44 by sguilher          #+#    #+#             */
+/*   Updated: 2021/08/20 04:37:28 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#include "../utils/test.h"
 
-# include "../../ft_printf/ft_printf.h"
-#include "./others/colors.h"
-#include <stdio.h>
-
-# define NOT_OK	0
-# define OK		1
-
-void	check_return(int n1, int n2);
-void	text_tests();
-void	percentage_test();
-void	empty_var_test();
-
-#endif
+int	main(){
+	//c_bonus_test();
+	//s_bonus_test();
+	//d_bonus_test();
+	//i_bonus_test();
+	u_bonus_test();
+	//p_bonus_test();
+	//xlow_bonus_test();
+	//xupp_bonus_test();
+	return (0);
+}

@@ -6,20 +6,22 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:03:39 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/18 03:44:48 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/20 04:12:03 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ft_printf source
-PRINTF_PATH =	../ft_printf/
-TEST_PATH =		../test/
-UTILS_PATH =			./utils/
+PRINTF_PATH =		../ft_printf/
+TEST_PATH =			../test/
+MANDATORY_PATH =	./mandatory/
+UTILS_PATH =		./utils/
+BONUS_PATH =		./bonus/
 
-NAME =			test.out
+NAME =			mandatory.out
 BONUS = 		bonus.out
 PRINTF =		$(PRINTF_PATH)libftprintf.a
-TEST =			test.c
-BONUS_TEST =	bonus.c
+TEST =			$(wildcard $(MANDATORY_PATH)*.c)
+BONUS_TEST =	$(wildcard $(BONUS_PATH)*.c)
 UTILS =			$(wildcard $(UTILS_PATH)*.c)
 
 # compilation

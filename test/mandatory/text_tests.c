@@ -6,11 +6,11 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:29:24 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 23:11:00 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 04:10:14 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include "../utils/test.h"
 
 void	text_tests()
 {

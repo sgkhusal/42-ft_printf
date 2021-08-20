@@ -6,11 +6,11 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:36:35 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/18 23:16:32 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/20 04:09:58 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h"
+#include "../utils/test.h"
 
 void	empty_var_test()
 {
