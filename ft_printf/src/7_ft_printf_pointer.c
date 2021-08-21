@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 19:38:59 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 18:09:52 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 18:13:57 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	printf_pointer(t_print *p, t_flags *f, char *hex, int size)
 
 static int	printf_print_psize(t_flags *f, int size, char c)
 {
-	if ((*f).point == YES && (*f).precision == 0 && c != '0')
+	if ((*f).point == YES && (*f).precision == 0 && c == '0')
 		return (2);
 	if ((*f).precision > size)
 		return ((*f).precision + 2);
