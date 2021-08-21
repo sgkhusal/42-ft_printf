@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:49:47 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 21:52:43 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 22:04:04 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,10 +126,10 @@ s_bonus_test()
 	result1 = printf("string %%5.10s = |%5.10s|\n", "");
 	result2 = ft_printf("string %%5.10s = |%5.10s|\n", "");
 	check_return(result1, result2);
-	result1 = printf("%%5.s = |%5.s|\n", '\0');
-	result2 = ft_printf("%%5.s = |%5.s|\n", '\0');
+	result1 = printf("%%5.s = |%5.s|\n", "");
+	result2 = ft_printf("%%5.s = |%5.s|\n", "");
 	check_return(result1, result2);
-	result1 = printf("%%05.s = |%05.s|\n", '\0');
-	result2 = ft_printf("%%05.s = |%05.s|\n", '\0');
+	result1 = printf("%%05.s = |%05.s|\n", "");
+	result2 = ft_printf("%%05.s = |%05.s|\n", "");
 	check_return(result1, result2);
 }
