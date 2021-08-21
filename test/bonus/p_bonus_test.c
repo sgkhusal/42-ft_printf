@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:02 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 19:19:49 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:21:34 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void	p_bonus_test()
 	result2 = ft_printf("%%-05p = |%-05p|\n", 0);
 	check_return(result1, result2);
 	printf("---------------\n");
-	printf(LIGHT_BLUE2("\ntest 7.2:\n"));
+	printf(LIGHT_BLUE2("\ntest 7.2: precision\n"));
 	result1 = printf("%%.5p = |%.5p|\n", 0);
 	result2 = ft_printf("%%.5p = |%.5p|\n", 0);
 	check_return(result1, result2);
@@ -113,9 +113,16 @@ void	p_bonus_test()
 	result2 = ft_printf("%%.05p = |%.05p|\n", 0);
 	check_return(result1, result2);
 	printf("---------------\n");
-	printf(LIGHT_BLUE2("test 7.3:\n"));
+	printf(LIGHT_BLUE2("\ntest 7.3: precision and pad\n"));
 	result1 = printf("%10s = |%05.3p|\n", "%05.3p", 0);
 	result2 = ft_printf("%10s = |%05.3p|\n", "%05.3p", 0);
+	check_return(result1, result2);
+	printf("---------------\n");
+	result1 = printf("%%8.5x = |%8.5x|\n", 0);
+	result2 = ft_printf("%%8.5x = |%8.5x|\n", 0);
+	check_return(result1, result2);
+	result1 = printf("%%-8.5x = |%-8.5x|\n", 0);
+	result2 = ft_printf("%%-8.5x = |%-8.5x|\n", 0);
 	check_return(result1, result2);
 
 	printf("---------------\n");
