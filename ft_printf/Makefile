@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:01:10 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/21 00:29:33 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/21 21:22:08 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRC =			$(SRC_PATH)/1_ft_printf.c \
 				$(SRC_PATH)/3_ft_printf_specifiers.c \
 				$(SRC_PATH)/ft_printf_libft.c \
 				$(SRC_PATH)/ft_printf_utils.c \
-				$(SRC_PATH)/ft_printf_utils2.c \
 				$(SRC_PATH)/4_ft_printf_char.c \
 				$(SRC_PATH)/5_ft_printf_integer.c \
 				$(SRC_PATH)/5_ft_printf_itoa.c \

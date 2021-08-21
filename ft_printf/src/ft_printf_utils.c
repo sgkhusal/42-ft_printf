@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 19:12:04 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 19:42:08 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 21:21:49 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,19 @@ void	ft_toupper_str(char *s)
 		*s = ft_toupper(*s);
 		s++;
 	}
+}
+
+int	ft_printf_atoi(t_print *p, const char *nptr, int *i)
+{
+	unsigned long long		n;
+
+	n = 0;
+	while (ft_isdigit(*nptr))
+	{
+		n = n * 10 + (*nptr - 48);
+		nptr++;
+		(*p).i++;
+		(*i)++;
+	}
+	return (n);
 }

@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:26 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 19:52:43 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 21:20:51 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	printf_x(t_print *p, t_flags *f, unsigned int n)
 			aux = printf_print_xsize(f, size, hex[0]);
 			printf_hash(p, f, hex[0]);
 			printf_hex(p, f, hex, size);
-			printf_pad(p, (*f).width,aux, ' ');
+			printf_pad(p, (*f).width, aux, ' ');
 		}
 		else
 			printf_rjust_x(p, f, hex, size);

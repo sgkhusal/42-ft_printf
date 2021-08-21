@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 16:54:42 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 21:20:00 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-#include <stdio.h> ///////////////////////////////
 
 # define STDOUT	1
 # define CONVERSIONS "cspdiuxX"
@@ -74,7 +73,6 @@ void	printf_zero(t_print *p, t_flags *f);
 int		ft_printf_atoi(t_print *p, const char *nptr, int *i);
 char	*printf_itoa(unsigned int n);
 int		printf_nbsize(unsigned int n);
-int		ft_highnb(int n1, int n2);
 
 char	*printf_itohex(unsigned long int n);
 void	ft_toupper_str(char *s);
