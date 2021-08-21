@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:26 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 01:39:55 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 04:05:39 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ static void	printf_hex(t_print *p, t_flags *f, char *hex)
 
 int	printf_print_size(t_flags *f, int size, char c)
 {
-
 	if ((*f).point == YES && c == '0')
 		return (0);
 	if ((*f).precision > size)
