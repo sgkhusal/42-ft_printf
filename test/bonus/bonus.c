@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:09:44 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 06:23:58 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 17:40:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main(){
 	/*flags_no_specifier_test();
 	c_bonus_test();
 	s_bonus_test();
-	d_bonus_test();
+	d_bonus_test();*/
 	i_bonus_test();
-	u_bonus_test();*/
+	//u_bonus_test();
 	p_bonus_test();
 	//xlow_bonus_test();
 	//xupp_bonus_test();
