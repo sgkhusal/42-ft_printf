@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:22 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 23:14:55 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:53:11 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ void	printf_putcharnb_fd(t_print *p, char c)
 	}
 }
 
-void	printf_putstr_fd(t_print *p, const char *s, int size)
+void	printf_putstr_fd(t_print *p, char *s, int size, int free_null)
 {
 	if (s)
 		(*p).len = (*p).len + write((*p).fd, s, size);
+	if (free_null == YES)
+		free(s);
 }
 
 void	printf_c(t_print *p, t_flags *f, char c)
@@ -48,25 +50,28 @@ void	printf_c(t_print *p, t_flags *f, char c)
 void	printf_s(t_print *p, t_flags *f, char *s)
 {
 	int	size;
+	int	free_null;
 
-	if (s)
+	free_null = NO;
+	if (!s)
 	{
-		size = (int)ft_strlen(s);
-		if ((*f).point == YES && (*f).precision < size)
-			size = (*f).precision;
-		if ((*f).minus == YES)
-		{
-			printf_putstr_fd(p, s, size);
-			(*f).width -= size;
-			printf_pad(p, (*f).width, 0, ' ');
-		}
+		s = ft_strdup("(null)");
+		free_null = YES;
+	}
+	size = (int)ft_strlen(s);
+	if ((*f).point == YES && (*f).precision < size)
+		size = (*f).precision;
+	if ((*f).minus == YES)
+	{
+		printf_putstr_fd(p, s, size, free_null);
+		printf_pad(p, (*f).width, size, ' ');
+	}
+	else
+	{
+		if ((*f).zero == YES)
+			printf_pad(p, (*f).width, size, '0');
 		else
-		{
-			if ((*f).zero == YES)
-				printf_pad(p, (*f).width, size, '0');
-			else
-				printf_pad(p, (*f).width, size, ' ');
-			printf_putstr_fd(p, s, size);
-		}
+			printf_pad(p, (*f).width, size, ' ');
+		printf_putstr_fd(p, s, size, free_null);
 	}
 }

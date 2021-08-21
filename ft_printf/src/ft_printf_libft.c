@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 06:10:28 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 19:55:08 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/22 00:05:06 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,24 @@ int	ft_toupper(int c)
 	if (c > 96 && c < 123)
 		c = c - 32;
 	return (c);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*copy;
+	size_t	i;
+	size_t	size;
+
+	size = ft_strlen(s) + 1;
+	copy = (char *)malloc(size * sizeof(char));
+	if (!(copy))
+		return (NULL);
+	i = 0;
+	while (i < size - 1)
+	{
+		copy[i] = s[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
 }

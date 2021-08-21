@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 22:48:25 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:42:59 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	printf_idu(t_print *p, t_flags *f, long int n);
 void	printf_p(t_print *p, t_flags *f, unsigned long int n);
 void	printf_x(t_print *p, t_flags *f, unsigned int n);
 
-void	printf_putstr_fd(t_print *p, const char *s, int size);
+void	printf_putstr_fd(t_print *p, char *s, int size, int free_null);
 void	printf_putchar_fd(t_print *p, char c);
 void	printf_putcharnb_fd(t_print *p, char c);
 void	printf_pad(t_print *p, int var, int ref, char c);
@@ -83,6 +83,7 @@ libft
 
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *str);
+char	*ft_strdup(const char *s);
 int		ft_isdigit(int c);
 int		ft_toupper(int c);
 

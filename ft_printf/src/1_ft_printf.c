@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   1_ft_printf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 21:59:48 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 19:53:13 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:48:55 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	printf_fd(int fd, const char *str, va_list args)
 		p.sub_len++;
 		if (str[p.i] == '%')
 		{
-			printf_putstr_fd(&p, &str[j], p.sub_len - 1);
+			printf_putstr_fd(&p, (char *)&str[j], p.sub_len - 1, NO);
 			printf_flags(&p, &str[++p.i], args);
 			j = p.i;
 			p.sub_len = 0;
@@ -35,7 +35,7 @@ static int	printf_fd(int fd, const char *str, va_list args)
 		else
 			p.i++;
 	}
-	printf_putstr_fd(&p, &str[j], p.sub_len);
+	printf_putstr_fd(&p, (char *)&str[j], p.sub_len, NO);
 	return (p.len);
 }
 

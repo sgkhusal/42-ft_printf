@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:26 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 21:20:51 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:55:29 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static void	printf_hash(t_print *p, t_flags *f, char c)
 	if ((*f).hashtag == YES && c != '0')
 	{
 		if ((*f).specifier == LOWX)
-			printf_putstr_fd(p, "0x", 2);
+			printf_putstr_fd(p, "0x", 2, NO);
 		else if ((*f).specifier == UPPX)
-			printf_putstr_fd(p, "0X", 2);
+			printf_putstr_fd(p, "0X", 2, NO);
 	}
 }
 
@@ -33,7 +33,7 @@ static void	printf_hex(t_print *p, t_flags *f, char *hex, int size)
 	{
 		if ((*f).specifier == UPPX)
 			ft_toupper_str(hex);
-		printf_putstr_fd(p, hex, ft_strlen(hex));
+		printf_putstr_fd(p, hex, ft_strlen(hex), NO);
 	}
 }
 

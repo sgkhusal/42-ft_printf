@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:49:47 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 23:12:47 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:43:48 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,21 +133,20 @@ s_bonus_test()
 	result2 = ft_printf("%%05.s = |%05.s|\n", "");
 	check_return(result1, result2);
 	printf("-----------------------------------------------\n");
-	printf(LIGHT_BLUE2("\ntest 8: Paulo Santana tests\n"));
-	result1 = printf("%%.1s = |%.1s|\n", "");
-	result2 = ft_printf("%%.1s = |%.1s|\n", "");
-	check_return(result1, result2);
-	result1 = printf("%%.2s = |%.2s|\n", "");
-	result2 = ft_printf("%%.2s = |%.2s|\n", "");
-	check_return(result1, result2);
 
-	printf("-----------------------------------------------\n");
 	char *null_str = NULL;
-	printf(LIGHT_BLUE2("\ntest 9: Paulo Santana tests\n"));
+	printf(PINK("\nPaulo Santana null string tests\n"));
+	printf(LIGHT_BLUE2("\ntest 8: \n"));
 	result1 = printf("%%.1s = |%.1s|\n", null_str);
 	result2 = ft_printf("%%.1s = |%.1s|\n", null_str);
 	check_return(result1, result2);
 	result1 = printf("%%.2s = |%.2s|\n", null_str);
 	result2 = ft_printf("%%.2s = |%.2s|\n", null_str);
+	check_return(result1, result2);
+	result1 = printf("%%.3s = |%.3s|\n", null_str);
+	result2 = ft_printf("%%.3s = |%.3s|\n", null_str);
+	check_return(result1, result2);
+	result1 = printf("%%.10s = |%.10s|\n", null_str);
+	result2 = ft_printf("%%.10s = |%.10s|\n", null_str);
 	check_return(result1, result2);
 }

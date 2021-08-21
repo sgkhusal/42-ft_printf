@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 19:38:59 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 22:48:15 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:56:51 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	printf_pointer(t_print *p, t_flags *f, char *hex, int size)
 	if (hex[0] == '0')
 		printf_zero(p, f);
 	else
-		printf_putstr_fd(p, hex, size);
+		printf_putstr_fd(p, hex, size, NO);
 }
 
 static int	printf_print_psize(t_flags *f, int size, char c)
@@ -39,13 +39,13 @@ static void	printf_rjust_x(t_print *p, t_flags *f, char *hex, int size)
 	aux = printf_print_psize(f, size, hex[0]);
 	if ((*f).zero == YES && (*f).point == NO)
 	{
-		printf_putstr_fd(p, "0x", 2);
+		printf_putstr_fd(p, "0x", 2, NO);
 		printf_pad(p, (*f).width, aux, '0');
 	}
 	else
 		printf_pad(p, (*f).width, aux, ' ');
 	if ((*f).zero == NO || ((*f).zero == YES && (*f).point == YES))
-		printf_putstr_fd(p, "0x", 2);
+		printf_putstr_fd(p, "0x", 2, NO);
 	printf_pointer(p, f, hex, size);
 }
 
@@ -62,7 +62,7 @@ void	printf_p(t_print *p, t_flags *f, unsigned long int n)
 		if ((*f).minus == YES)
 		{
 			aux = printf_print_psize(f, size, hex[0]);
-			printf_putstr_fd(p, "0x", 2);
+			printf_putstr_fd(p, "0x", 2, NO);
 			printf_pointer(p, f, hex, size);
 			printf_pad(p, (*f).width, aux, ' ');
 		}
