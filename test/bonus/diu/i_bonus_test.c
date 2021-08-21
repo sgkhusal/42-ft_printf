@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:16:12 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 20:15:38 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:35:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -266,7 +266,10 @@ void	i_bonus_test()
 	result2 = ft_printf("%%#.5i = |%#.5i|\n", 0);
 	check_return(result1, result2);
 	printf("--------------------------------\n");
-	printf(LIGHT_BLUE2("test 8.3:\n"));
+	printf(LIGHT_BLUE2("test 8.3: precision and width\n"));
+	result1 = printf("%%+5.i = |%+5.i|\n", 0);
+	result2 = ft_printf("%%+5.i = |%+5.i|\n", 0);
+	check_return(result1, result2);
 	result1 = printf("%10s = |%05.3i|\n", "%05.3i", 0);
 	result2 = ft_printf("%10s = |%05.3i|\n", "%05.3i", 0);
 	check_return(result1, result2);
