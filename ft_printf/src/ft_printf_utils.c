@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 19:12:04 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 00:20:38 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:42:08 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	printf_pad2(t_print *p, t_flags *f, int ref, char c)
 
 void	printf_zero(t_print *p, t_flags *f)
 {
-	if ((*f).point == 0 || (*f).precision != 0)
+	if ((*f).point == NO || (*f).precision != 0)
 		printf_putchar_fd(p, '0');
 }
 

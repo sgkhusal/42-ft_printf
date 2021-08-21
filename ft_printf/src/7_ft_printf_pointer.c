@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 19:38:59 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 18:13:57 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:43:09 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	printf_pointer(t_print *p, t_flags *f, char *hex, int size)
 {
 	if ((*f).point == YES && (*f).precision > size)
 		printf_pad(p, (*f).precision, size, '0');
-	if ((*f).point == YES && (*f).precision == 0 && hex[0] == '0')
-		printf_putcharnb_fd(p, '\0');
+	if (hex[0] == '0')
+		printf_zero(p, f);
 	else
 		printf_putstr_fd(p, hex, size);
 }
@@ -63,7 +63,7 @@ void	printf_p(t_print *p, t_flags *f, unsigned long int n)
 		{
 			aux = printf_print_psize(f, size, hex[0]);
 			printf_putstr_fd(p, "0x", 2);
-				printf_pointer(p, f, hex, size);
+			printf_pointer(p, f, hex, size);
 			printf_pad(p, (*f).width, aux, ' ');
 		}
 		else
