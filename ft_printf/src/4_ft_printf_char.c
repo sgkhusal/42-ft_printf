@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:22 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 22:06:06 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 23:14:55 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,24 @@ void	printf_s(t_print *p, t_flags *f, char *s)
 {
 	int	size;
 
-	size = (int)ft_strlen(s);
-	if ((*f).point == YES && (*f).precision < size)
-		size = (*f).precision;
-	if ((*f).minus == YES)
+	if (s)
 	{
-		printf_putstr_fd(p, s, size);
-		(*f).width -= size;
-		printf_pad(p, (*f).width, 0, ' ');
-	}
-	else
-	{
-		if ((*f).zero == YES)
-			printf_pad(p, (*f).width, size, '0');
+		size = (int)ft_strlen(s);
+		if ((*f).point == YES && (*f).precision < size)
+			size = (*f).precision;
+		if ((*f).minus == YES)
+		{
+			printf_putstr_fd(p, s, size);
+			(*f).width -= size;
+			printf_pad(p, (*f).width, 0, ' ');
+		}
 		else
-			printf_pad(p, (*f).width, size, ' ');
-		printf_putstr_fd(p, s, size);
+		{
+			if ((*f).zero == YES)
+				printf_pad(p, (*f).width, size, '0');
+			else
+				printf_pad(p, (*f).width, size, ' ');
+			printf_putstr_fd(p, s, size);
+		}
 	}
 }
