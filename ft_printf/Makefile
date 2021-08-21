@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:01:10 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/21 21:22:08 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/22 00:33:37 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ $(NAME):	$(OBJ)
 		ranlib $@
 
 clean:
-		$(RM) $(OBJ) $(BONUS_OBJ)
+		$(RM) $(OBJ)
 		$(RM_DIR) $(OBJ_PATH)
 
 fclean:		clean
