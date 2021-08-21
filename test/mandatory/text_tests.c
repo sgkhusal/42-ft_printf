@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:29:24 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 03:09:16 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 03:16:59 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,17 @@ void	text_tests()
 	check_return(result1, result2);
 	printf("--------------------------------\n");
 	printf(PINK("\nTest 4: special character \\num - write a byte whose value is the 1-, 2- or 3- digit octal number num. Multiple characters can be constructed using multiple \\num sequeces.\n"));
-	result1 = printf("This is the octal number \\47 = \47 in the ascii table\n");
-	result2 = ft_printf("This is the octal number \\47 = \47 in the ascii table\n");
-	check_return(result1, result2);
-	result1 = printf("This is the octal number \\48 = \48 in the ascii table\n");
-	result2 = ft_printf("This is the octal number \\48 = \48 in the ascii table\n");
-	check_return(result1, result2);
 	result1 = printf("This is the octal number \\57 = \57 in the ascii table\n");
 	result2 = ft_printf("This is the octal number \\57 = \57 in the ascii table\n");
 	check_return(result1, result2);
-	result1 = printf("This is the octal number \\58 = \58 in the ascii table\n");
-	result2 = ft_printf("This is the octal number \\58 = \58 in the ascii table\n");
+	result1 = printf("This is the octal number \\60 = \60 in the ascii table\n");
+	result2 = ft_printf("This is the octal number \\60 = \60 in the ascii table\n");
+	check_return(result1, result2);
+	result1 = printf("This is the octal number \\71 = \71 in the ascii table\n");
+	result2 = ft_printf("This is the octal number \\71 = \71 in the ascii table\n");
+	check_return(result1, result2);
+	result1 = printf("This is the octal number \\72 = \72 in the ascii table\n");
+	result2 = ft_printf("This is the octal number \\72 = \72 in the ascii table\n");
 	check_return(result1, result2);
 	result1 = printf("This is the octal number \\100 = \100 in the ascii table\n");
 	result2 = ft_printf("This is the octal number \\100 = \100 in the ascii table\n");
@@ -101,8 +101,8 @@ void	text_tests()
 	result1 = printf("This is the octal number \\173 = \173 in the ascii table\n");
 	result2 = ft_printf("This is the octal number \\173 = \173 in the ascii table\n");
 	check_return(result1, result2);
-	result1 = printf("This is the octal number \\165 = \165\45\n");
-	result2 = ft_printf("This is the octal number \\165 = \165\45\n");
+	result1 = printf("This is the octal number \\165 = \165\045\n");
+	result2 = ft_printf("This is the octal number \\165 = \165\045\n");
 	check_return(result1, result2);
 
 }
