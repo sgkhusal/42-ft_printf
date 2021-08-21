@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:30 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 21:17:16 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 21:32:26 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,12 @@ static void	printf_number(t_print *p, t_flags *f, unsigned int n, int size)
 static int	printf_print_isize(t_flags *f, int size, long int n, char sign)
 {
 	if ((*f).point == YES && (*f).precision == 0 && n == 0)
-		return (0);
+	{
+		if (sign)
+			return (1);
+		else
+			return (0);
+	}
 	if (sign)
 	{
 		if ((*f).precision > size)
