@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:29:24 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 03:22:27 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 03:33:37 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,4 @@ void	text_tests()
 	result1 = printf("This is the octal number \\165 = \165\045\n");
 	result2 = ft_printf("This is the octal number \\165 = \165\045\n");
 	check_return(result1, result2);
-
 }

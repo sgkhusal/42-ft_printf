@@ -6,7 +6,7 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:03:39 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/20 04:12:03 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/21 03:30:52 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ BONUS_TEST =	$(wildcard $(BONUS_PATH)*.c)
 UTILS =			$(wildcard $(UTILS_PATH)*.c)
 
 # compilation
-CC =		clang
+CC =		clang -w
 CFLAGS =	-Wall -Werror -Wextra
 RM =		-rm -f
 
@@ -36,17 +36,17 @@ m:		printf $(NAME) cat
 b:		printf $(BONUS) cat
 
 $(NAME):
-	$(CC) $(TEST) $(UTILS) $(PRINTF) -o $@
-	./$@
-	$(RM) $@
+	@$(CC) $(CFLAGS) $(TEST) $(UTILS) $(PRINTF) -o $@
+	@./$@
+	@$(RM) $@
 
 $(BONUS):
-	$(CC) $(BONUS_TEST) $(UTILS) $(PRINTF) -o $@
-	./$@
-	$(RM) $@
+	@$(CC) $(CFLAGS) $(BONUS_TEST) $(UTILS) $(PRINTF) -o $@
+	@./$@
+	@$(RM) $@
 
 printf:
-		cd $(PRINTF_PATH) && $(MAKE)
+		@cd $(PRINTF_PATH) && $(MAKE)
 
 cat:
 	@echo "\n"
@@ -70,7 +70,7 @@ cat:
 	@echo ""
 
 clean:
-		$(RM) $(NAME) $(BONUS)
+		@$(RM) $(NAME) $(BONUS)
 		@cd $(PRINTF_PATH) && $(MAKE) $@
 
 fclean:		clean
