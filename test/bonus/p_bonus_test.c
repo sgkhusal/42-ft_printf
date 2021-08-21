@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:02 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 19:23:22 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:26:55 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,9 @@ void	p_bonus_test()
 	printf("---------------\n");
 	result1 = printf("%%8.5p = |%8.5p|\n", 0);
 	result2 = ft_printf("%%8.5p = |%8.5p|\n", 0);
+	check_return(result1, result2);
+	result1 = printf("%%08.5p = |%08.5p|\n", 0);
+	result2 = ft_printf("%%08.5p = |%08.5p|\n", 0);
 	check_return(result1, result2);
 	result1 = printf("%%-8.5p = |%-8.5p|\n", 0);
 	result2 = ft_printf("%%-8.5p = |%-8.5p|\n", 0);
