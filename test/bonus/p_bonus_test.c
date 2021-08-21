@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:02 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 05:47:21 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 06:22:44 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,12 @@ void	p_bonus_test()
 	check_return(result1, result2);
 
 	printf("---------------\n");
-	printf(LIGHT_BLUE2("test 3: 0x\n"));
-	result1 = printf("%%#20p = |%#20p|\n", &i);
-	result2 = ft_printf("%%#20p = |%#20p|\n", &i);
-	check_return(result1, result2);
-	result1 = printf("%%#-20p = |%#-20p|\n", &i);
-	result2 = ft_printf("%%#-20p = |%#-20p|\n", &i);
-	check_return(result1, result2);
-	result1 = printf("%%-#20p = |%-#20p|\n", &i);
-	result2 = ft_printf("%%-#20p = |%-#20p|\n", &i);
-	check_return(result1, result2);
-
-	printf("---------------\n");
 	printf(LIGHT_BLUE2("test 4: 0 padding\n"));
 	result1 = printf("%%020p = |%020p|\n", &i);
 	result2 = ft_printf("%%020p = |%020p|\n", &i);
 	check_return(result1, result2);
 	result1 = printf("%%-020p = |%-020p|\n", &i);
 	result2 = ft_printf("%%-020p = |%-020p|\n", &i);
-	check_return(result1, result2);
-	result1 = printf("%%-0#20p = |%-0#20p|\n", &i);
-	result2 = ft_printf("%%-0#20p = |%-0#20p|\n", &i);
-	check_return(result1, result2);
-	result1 = printf("%%0#20p = |%0#20p|\n", &i);
-	result2 = ft_printf("%%0#20p = |%0#20p|\n", &i);
 	check_return(result1, result2);
 
 	printf("---------------\n");
@@ -71,9 +53,6 @@ void	p_bonus_test()
 	result1 = printf("%%.15p = |%.15p|\n", &i);
 	result2 = ft_printf("%%.15p = |%.15p|\n", &i);
 	check_return(result1, result2);
-	result1 = printf("%%#.8p = |%#.8p|\n", &i);
-	result2 = ft_printf("%%#.8p = |%#.8p|\n", &i);
-	check_return(result1, result2);
 
 	printf("---------------\n");
 	printf(LIGHT_BLUE2("\ntest 5.2: precision and width\n"));
@@ -83,17 +62,11 @@ void	p_bonus_test()
 	result1 = printf("%%-20.15p = |%-20.15p|\n", &i);
 	result2 = ft_printf("%%-20.15p = |%-20.15p|\n", &i);
 	check_return(result1, result2);
-	result1 = printf("%%#20.15p = |%#20.15p|\n", &i);
-	result2 = ft_printf("%%#20.15p = |%#20.15p|\n", &i);
-	check_return(result1, result2);
 
 	printf("---------------\n");
 	printf(LIGHT_BLUE2("test 5.3: precision = 0\n"));
 	result1 = printf("%%.p = |%.p|\n", &i);
 	result2 = ft_printf("%%.p = |%.p|\n", &i);
-	check_return(result1, result2);
-	result1 = printf("%%#5.p = |%#5.p|\n", &i);
-	result2 = ft_printf("%%#5.p = |%#5.p|\n", &i);
 	check_return(result1, result2);
 
 	printf("---------------\n");
@@ -104,6 +77,9 @@ void	p_bonus_test()
 	check_return(result1, result2);
 	result1 = printf("%%- 20p = |%- 20p|\n", &i);
 	result2 = ft_printf("%%- 20p = |%- 20p|\n", &i);
+	check_return(result1, result2);
+	result1 = printf("%%#20p = |%#20p|\n", &i);
+	result2 = ft_printf("%%#20p = |%#20p|\n", &i);
 	check_return(result1, result2);
 
 	printf("---------------\n");
@@ -126,18 +102,10 @@ void	p_bonus_test()
 	result2 = ft_printf("%%-05p = |%-05p|\n", 0);
 	check_return(result1, result2);
 	printf("---------------\n");
-	result1 = printf("%%#5p = |%#5p|\n", 0);
-	result2 = ft_printf("%%#5p = |%#5p|\n", 0);
-	check_return(result1, result2);
-	printf("---------------\n");
 	printf(LIGHT_BLUE2("\ntest 7.2:\n"));
 	result1 = printf("%%.5p = |%.5p|\n", 0);
 	result2 = ft_printf("%%.5p = |%.5p|\n", 0);
 	check_return(result1, result2);
-	result1 = printf("%%#.5p = |%#.5p|\n", 0);
-	result2 = ft_printf("%%#.5p = |%#.5p|\n", 0);
-	check_return(result1, result2);
-	printf("---------------\n");
 	result1 = printf("%%.05p = |%.05p|\n", 0);
 	result2 = ft_printf("%%.05p = |%.05p|\n", 0);
 	check_return(result1, result2);
@@ -148,8 +116,8 @@ void	p_bonus_test()
 	result1 = printf("%%.p = |%.p|\n", 0);
 	result2 = ft_printf("%%.p = |%.p|\n", 0);
 	check_return(result1, result2);
-	result1 = printf("%%.#5p = |%.#5p|\n", 0);
-	result2 = ft_printf("%%.#5p = |%.#5p|\n", 0);
+	result1 = printf("%%5.p = |%5.p|\n", 0);
+	result2 = ft_printf("%%5.p = |%5.p|\n", 0);
 	check_return(result1, result2);
 	result1 = printf("%%.-5p = |%.-5p|\n", 0);
 	result2 = ft_printf("%%.-5p = |%.-5p|\n", 0);
