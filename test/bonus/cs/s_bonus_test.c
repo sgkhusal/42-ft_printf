@@ -6,11 +6,11 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:49:47 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 05:24:20 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:15:05 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../utils/test.h"
+#include "../../utils/test.h"
 
 s_bonus_test()
 {

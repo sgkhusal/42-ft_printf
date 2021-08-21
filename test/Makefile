@@ -6,47 +6,76 @@
 #    By: sguilher <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/04 17:03:39 by sguilher          #+#    #+#              #
-#    Updated: 2021/08/21 03:30:52 by sguilher         ###   ########.fr        #
+#    Updated: 2021/08/21 20:25:03 by sguilher         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# ft_printf source
+# **************************************************************************** #
+# UPDATE THE FOLLOWING PATHS FOR THE TEST WORK WITH YOUR FT_PRINTF:
+# **************************************************************************** #
+# ft_printf source path - where is the makefile that compiles ft_printf
 PRINTF_PATH =		../ft_printf/
+
+# libftprintf.a path
+PRINTF =			$(PRINTF_PATH)libftprintf.a
+
+# **************************************************************************** #
+
+# test sources paths
 TEST_PATH =			../test/
 MANDATORY_PATH =	./mandatory/
 UTILS_PATH =		./utils/
-BONUS_PATH =		./bonus/
+BONUS_CS_PATH =		./bonus/cs/
+BONUS_DIU_PATH =	./bonus/diu/
+BONUS_PX_PATH =		./bonus/px/
 
-NAME =			mandatory.out
-BONUS = 		bonus.out
-PRINTF =		$(PRINTF_PATH)libftprintf.a
-TEST =			$(wildcard $(MANDATORY_PATH)*.c)
-BONUS_TEST =	$(wildcard $(BONUS_PATH)*.c)
-UTILS =			$(wildcard $(UTILS_PATH)*.c)
+NAME =				mandatory.out
+BONUS_CS = 			bonus_cs.out
+BONUS_DIU = 		bonus_diu.out
+BONUS_PX = 			bonus_px.out
+UTILS =				$(wildcard $(UTILS_PATH)*.c)
+TEST =				$(wildcard $(MANDATORY_PATH)*.c)
+BONUS_CS_TEST =		$(wildcard $(BONUS_CS_PATH)*.c)
+BONUS_DIU_TEST =	$(wildcard $(BONUS_DIU_PATH)*.c)
+BONUS_PX_TEST =		$(wildcard $(BONUS_PX_PATH)*.c)
 
 # compilation
 CC =		clang -w
 CFLAGS =	-Wall -Werror -Wextra
 RM =		-rm -f
 
-all:	printf $(NAME) $(BONUS) cat
+all:	m
 
 m:		printf $(NAME) cat
 
-b:		printf $(BONUS) cat
+bcs:	printf $(BONUS_CS) cat
+
+bdiu:	printf $(BONUS_DIU) cat
+
+bpx:	printf $(BONUS_PX) cat
+
+printf:
+		@cd $(PRINTF_PATH) && $(MAKE)
 
 $(NAME):
 	@$(CC) $(CFLAGS) $(TEST) $(UTILS) $(PRINTF) -o $@
 	@./$@
 	@$(RM) $@
 
-$(BONUS):
-	@$(CC) $(CFLAGS) $(BONUS_TEST) $(UTILS) $(PRINTF) -o $@
+$(BONUS_CS):
+	@$(CC) $(CFLAGS) $(BONUS_CS_TEST) $(UTILS) $(PRINTF) -o $@
 	@./$@
 	@$(RM) $@
 
-printf:
-		@cd $(PRINTF_PATH) && $(MAKE)
+$(BONUS_DIU):
+	@$(CC) $(CFLAGS) $(BONUS_DIU_TEST) $(UTILS) $(PRINTF) -o $@
+	@./$@
+	@$(RM) $@
+
+$(BONUS_PX):
+	@$(CC) $(CFLAGS) $(BONUS_PX_TEST) $(UTILS) $(PRINTF) -o $@
+	@./$@
+	@$(RM) $@
 
 cat:
 	@echo "\n"

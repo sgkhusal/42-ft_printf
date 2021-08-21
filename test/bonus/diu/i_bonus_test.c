@@ -6,11 +6,11 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:16:12 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 05:59:13 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:15:38 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../utils/test.h"
+#include "../../utils/test.h"
 
 void	i_bonus_test()
 {
@@ -255,7 +255,7 @@ void	i_bonus_test()
 	result2 = ft_printf("%%#5i = |%#5i|\n", 0);
 	check_return(result1, result2);
 	printf("--------------------------------\n");
-	printf(LIGHT_BLUE2("test 8.2:\n"));
+	printf(LIGHT_BLUE2("test 8.2: precision\n"));
 	result1 = printf("%%.5i = |%.5i|\n", 0);
 	result2 = ft_printf("%%.5i = |%.5i|\n", 0);
 	check_return(result1, result2);

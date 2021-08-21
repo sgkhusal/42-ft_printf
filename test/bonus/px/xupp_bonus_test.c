@@ -6,11 +6,11 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 04:50:31 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 05:40:29 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:16:30 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../utils/test.h"
+#include "../../utils/test.h"
 
 void	xupp_bonus_test()
 {
