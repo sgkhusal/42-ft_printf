@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 01:29:24 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 03:16:59 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 03:22:27 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,12 @@ void	text_tests()
 	check_return(result1, result2);
 	printf("--------------------------------\n");
 	printf(PINK("\nTest 3: special character \\c - ignore remaining characters in this string\n"));
+	printf(PINK("obs: It doesn't work on guacamole\n"));
 	result1 = printf("This should be printed.\cThis should not be printed.\n");
 	result2 = ft_printf("This should be printed.\cThis should not be printed.\n");
+	check_return(result1, result2);
+	result1 = printf("Putting as a variable %%s: %s", "This should be printed.\cThis should not be printed.\n");
+	result2 = ft_printf("Putting as a variable %%s: %s", "This should be printed.\cThis should not be printed.\n");
 	check_return(result1, result2);
 	printf("--------------------------------\n");
 	printf(PINK("\nTest 4: special character \\num - write a byte whose value is the 1-, 2- or 3- digit octal number num. Multiple characters can be constructed using multiple \\num sequeces.\n"));
