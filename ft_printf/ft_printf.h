@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:00:10 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 00:21:31 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 16:54:42 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,7 @@ void	print_specifier(t_print *p, t_flags *f, va_list args);
 void	printf_c(t_print *p, t_flags *f, char c);
 void	printf_s(t_print *p, t_flags *f, char *str);
 void	printf_idu(t_print *p, t_flags *f, long int n);
-//void	printf_ptr(t_print *p, t_flags *f, unsigned long int n);
-void	printf_ptr(t_print *p, unsigned long int n);
+void	printf_p(t_print *p, t_flags *f, unsigned long int n);
 void	printf_x(t_print *p, t_flags *f, unsigned int n);
 
 void	printf_putstr_fd(t_print *p, const char *s, int size);

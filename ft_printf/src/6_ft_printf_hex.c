@@ -6,7 +6,7 @@
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 23:09:26 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/21 04:05:39 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 17:06:04 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	printf_hex(t_print *p, t_flags *f, char *hex)
 	}
 }
 
-int	printf_print_size(t_flags *f, int size, char c)
+static int	printf_print_xsize(t_flags *f, int size, char c)
 {
 	if ((*f).point == YES && c == '0')
 		return (0);
@@ -77,7 +77,7 @@ static void	printf_rjust_x(t_print *p, t_flags *f, char *hex, int size)
 	}
 	else
 	{
-		printf_pad(p, (*f).width, printf_print_size(f, size, hex[0]), ' ');
+		printf_pad(p, (*f).width, printf_print_xsize(f, size, hex[0]), ' ');
 		printf_hash(p, f, hex[0]);
 		printf_pad(p, (*f).precision, size, '0');
 		printf_hex(p, f, hex);

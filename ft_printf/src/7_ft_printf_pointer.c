@@ -1,21 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_pointer.c                                :+:      :+:    :+:   */
+/*   7_ft_printf_pointer.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/20 19:38:59 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/20 19:39:28 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 17:31:16 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-//void	printf_ptr(t_print *p, t_flags *f, unsigned long int n)
-void	printf_ptr(t_print *p, unsigned long int n)
+void	printf_pointer(t_print *p, t_flags *f, char *hex, int size)
+{
+	if ((*f).point == YES && (*f).precision > size)
+		printf_pad(p, (*f).precision, size, '0');
+	if ((*f).point == YES && (*f).precision == 0 && hex[0] == '0')
+		printf_putcharnb_fd(p, '\0');
+	else
+		printf_putstr_fd(p, hex, size);
+}
+
+static int	printf_print_psize(t_flags *f, int size, char c)
+{
+	if ((*f).point == YES && (*f).precision == 0 && c != '0')
+		return (2);
+	if ((*f).precision > size)
+		return ((*f).precision + 2);
+	else
+		return (size + 2);
+}
+
+void	printf_p(t_print *p, t_flags *f, unsigned long int n)
 {
 	char	*hex;
+	int		size;
+	int		aux;
 
 	if (n == 0)
 		printf_putstr_fd(p, "0x0", 3);
@@ -24,8 +45,24 @@ void	printf_ptr(t_print *p, unsigned long int n)
 		hex = printf_itohex(n);
 		if (hex)
 		{
-			printf_putstr_fd(p, "0x", 2);
-			printf_putstr_fd(p, hex, (int)ft_strlen(hex));
+			size = (int)ft_strlen(hex);
+			aux = printf_print_psize(f, size, hex[0]);
+			if ((*f).minus == YES)
+			{
+				printf_putstr_fd(p, "0x", 2);
+				printf_pointer(p, f, hex, size);
+			}
+			if ((*f).minus == NO && (*f).zero == YES)
+			{
+				printf_putstr_fd(p, "0x", 2);
+				printf_pad(p, (*f).width, aux, '0');
+			}
+			else
+				printf_pad(p, (*f).width, aux, ' ');
+			if ((*f).minus == NO && (*f).zero == NO)
+				printf_putstr_fd(p, "0x", 2);
+			if ((*f).minus == NO)
+				printf_pointer(p, f, hex, size);
 			free(hex);
 		}
 	}
