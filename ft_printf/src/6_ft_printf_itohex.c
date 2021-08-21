@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_itohex.c                                 :+:      :+:    :+:   */
+/*   6_ft_printf_itohex.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 18:53:38 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/19 23:20:41 by sguilher         ###   ########.fr       */
+/*   Updated: 2021/08/21 22:48:41 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*printf_itohex(unsigned long int n)
 	char	*hexnb;
 	int		size;
 
-	size = 12;
+	size = 16;
 	hexnb = NULL;
 	if (size > 0)
 		hexnb = (char *)malloc((size + 1) * sizeof(char));
