@@ -51,8 +51,8 @@ For more information about this project see [ft_printf](https://github.com/sgkhu
 `int	ft_printf_fd(int fd, const char *str, ...);`
 
 ### Return values:
-- number of characters writing in the stdout for ft_printf function
-- number of characters writing in the file descriptor fd for ft_printf_fd function
+- number of characters writing in the stdout for `ft_printf` function
+- number of characters writing in the file descriptor fd for `ft_printf_fd` function
 - 0 if error
 
 _Note: The ft_printf function outputs are according with the printf outputs for MacOS system (in Linux some outputs are different).
