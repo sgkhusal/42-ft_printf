@@ -11,7 +11,7 @@ Recode format specifiers:
 - `%u`: unsigned integer
 - `%x`: hexadecimal unsigned integer (lowercase)
 - `%X`: hexadecimal unsigned integer (uppercase)
-- `%%`: percentage
+- `%%`: % printing
 
 ## Bonus
 - Manage any combination of the following flags: `'-0.'` and minimum field width with all conversions
