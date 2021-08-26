@@ -2,7 +2,7 @@
 Recode the libc’s printf function - 42 school project
 
 ## Mandatory
-Format specifiers:
+Recode format specifiers:
 - `%c`: char
 - `%s`: string
 - `%p`: pointer
