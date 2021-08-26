@@ -20,11 +20,11 @@ Recode format specifiers:
 ### Understanding the flags:
 - `number` (width): minimum number of charcters to be printed. If the value to be printed is shorter than this number,
 the result is padded with blank spaces. The value is not truncated even if the result is larger
-- `-` flag: left-justifies within the given field width. Right justification is the default
-- `0` flag: left-pads the number with zeroes instead of spaces
-- `+` flag: forces to precede the result with a plus or minus sign, even for positive numbers
-- ` ` (space) flag: if no sign is going to be written, a blank space is inserted before the value
-- `#` flag: used x or X specifiers - the value is preceded with 0x or 0X for values different than zero
+- `'-'`: left-justifies within the given field width. Right justification is the default
+- `'0'`: left-pads the number with zeroes instead of spaces
+- `'+'`: forces to precede the result with a plus or minus sign, even for positive numbers
+- `' ' (space)`: if no sign is going to be written, a blank space is inserted before the value
+- `'#'`: used x or X specifiers - the value is preceded with 0x or 0X for values different than zero
 
 #### Precision flag: `.number`
 - When no precision is specified, the default is 1.
