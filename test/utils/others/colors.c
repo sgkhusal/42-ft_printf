@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   colors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sguilher <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sguilher <sguilher@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 19:46:13 by sguilher          #+#    #+#             */
-/*   Updated: 2021/08/16 02:01:14 by sguilher         ###   ########.fr       */
+/*   Updated: 2022/04/20 22:51:14 by sguilher         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../colors.h"
+#include "./colors.h"
 #include <stdio.h>
 
 int	main(void){
