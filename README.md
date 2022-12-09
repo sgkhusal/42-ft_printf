@@ -34,8 +34,6 @@ the result is padded with blank spaces. The value is not truncated even if the r
 - For s is the maximum number of significant digits to be printed (By default all characters are printed until the ending null character is encountered)
 - For c it is has no effect
 
-For more information about this project see [ft_printf](https://github.com/sgkhusal/ft_printf/blob/main/ft_printf.pdf)
-
 ## Index
 
 - [ft_printf:](https://github.com/sgkhusal/ft_printf/tree/main/ft_printf) code developed for the project
